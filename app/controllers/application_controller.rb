@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     # CELL
     # helper_method :current_user, :loggedin? (frontend logic)
+    protect_from_forgery with: :exception # raises an excpetions when a request fails validations
 
     def current_user
         @current_user ||= User.find_by(session_token: session[:session_token])  
