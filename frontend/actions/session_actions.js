@@ -27,17 +27,17 @@ const receiveErrors = (errors) =>{
 export const login = (user) => (dispatch) =>{
     return SessionApiUtil.login(user)
     .then(user => dispatch(receiveCurrentUser(user)),  //if it passes
-    errors => dispatch(receiveErrors(errors)))         //if it errors out
+        errors => dispatch(receiveErrors(errors.responseJSON)))         //if it errors out
 }
 
 export const logout = () => (dispatch) => {
     return SessionApiUtil.logout()
     .then(() => dispatch(logoutCurrentUser()),
-    errors => dispatch(receiveErrors(errors)))
+        errors => dispatch(receiveErrors(errors.responseJSON)))
 }
 
 export const signup = (user) => (dispatch) => {
     return SessionApiUtil.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)),
-    errors => dispatch(receiveErrors(errors)))
+        errors => dispatch(receiveErrors(errors.responseJSON)))
 }

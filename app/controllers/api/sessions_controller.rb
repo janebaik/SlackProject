@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
     def create
         # login
         @user = User.find_by_credentials(
-            params[:user][:username],
+            params[:user][:email],
             params[:user][:password])
         if @user #user is able to be found (meaning there is a username and correct password)
             login!(@user)

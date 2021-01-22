@@ -4,19 +4,18 @@ import {signup} from '../../actions/session_actions'
 
 
 
+
 const msp = (state, ownProps) => {
+    // debugger
     return {
-        user: {
-            username:"",
-            email:"",
-            password:""
-        }
+        errors: state.errors.session, //idk if we need to index more we might have to, imma pause here and try to get that user to log in by going to log in jsx
+        formType: "Sign Up"
     }
 }
 
 const mdp = dispatch => {
     return {
-        signup: (user) => dispatch(signup(user))
+        action: (user) => dispatch(signup(user))
     }
 }
 

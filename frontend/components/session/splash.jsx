@@ -8,9 +8,13 @@ const Splash = (props) => {
         <div>
             HomePage
             <br/>
-            <Link to="/login">Sign In</Link>
+            <button>
+                <Link to="/login">Sign In</Link>
+            </button>
             <br/>
-            <Link to="/signup">Try for free</Link>
+            <button>
+                <Link to="/signup">Try for free</Link>
+            </button>
         </div>
     )
 }
