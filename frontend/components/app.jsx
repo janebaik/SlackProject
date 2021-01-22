@@ -1,10 +1,17 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import LogIn from './session/log_in.jsx';
+import SignUp from './session/sign_up.jsx';
  
-const App = () =>{
+const App = (props) =>{
+    // think about where to route to
     return(
-        <h1>
-            here I am an app rendering woohoo
-        </h1>
+        <div>
+            {/* see if this is supoose to be exact */}
+            <Route path='/login' component={LogIn}/>
+            <Route path='/signup' component={SignUp} />
+            {/* place in main componenets */}
+        </div>
     )
 }
 

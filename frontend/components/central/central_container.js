@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import Home from './home'
+import Central from './central'
 
 // when a user is signed in 
 const msp = (state, ownProps) =>{
+    debugger
     return {
-
+        currentUser: state.entities.users[state.session.id]
     }
 }
 
