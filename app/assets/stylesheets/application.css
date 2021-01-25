@@ -14,12 +14,7 @@
  *= require_self
  */
 
- /* from base */
  @import './base/reset.scss';
  @import './base/variables.scss';
-
-/* from user_splash */
  @import './user_splash/login_signup.scss';
  @import './user_splash/splash.scss';
-
- /* from central */
