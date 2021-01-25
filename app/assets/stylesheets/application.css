@@ -14,6 +14,6 @@
  *= require_self
  */
 
- /* @import './base/reset.scss'; */
+ @import './base/reset.scss';
  @import './base/variables.scss';
  @import './user_splash/splash.scss';
