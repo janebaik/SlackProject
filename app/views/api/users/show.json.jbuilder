@@ -1,2 +1,3 @@
-# shows the individual user
-json.partial! "api/users/user", user: @user
+# shows the individual user under user
+# debugger
+json.partial! "api/users/user", current_user: current_user

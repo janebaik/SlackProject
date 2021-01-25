@@ -1,19 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Central = (props) => {
-    // Goal: main central slack
+// currentUser: { id: 2, username: "Mona", email: "mona@gmail.com" }
+// history: { length: 26, action: "POP", location: { … }, createHref: ƒ, push: ƒ, … }
+// location: { pathname: "/slack-me", search: "", hash: "", state: undefined }
+// logout: ƒ logout()
+// match: { path: "/slack-me", url: "/slack-me", isExact: true, params: { … } }
 
 
-    return (
-        <div>
-            LOGOUT 
-            {/* <Link>Sign Out</Link>
-            <button>Sign Out</button> */}
-        </div>
-    )
+class Central extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return(
+            <div>
+                <button className="header-button" onClick={this.props.logout}>Log Out</button>
+            </div>
+            
+        )
+    }
 }
-
 
 
 export default Central;

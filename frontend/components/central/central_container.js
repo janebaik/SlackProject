@@ -4,7 +4,7 @@ import Central from './central'
 
 // when a user is signed in 
 const msp = (state, ownProps) =>{
-    debugger
+    // debugger
     return {
         currentUser: state.entities.users[state.session.id]
     }
@@ -16,4 +16,4 @@ const mdp = (dispatch) => {
     }
 }
 
-export default connect(msp, mdp)(Home)
+export default connect(msp, mdp)(Central)
