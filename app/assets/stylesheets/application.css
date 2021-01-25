@@ -16,5 +16,4 @@
 
  @import './base/reset.scss';
  @import './base/variables.scss';
- @import './user_splash/login_signup.scss';
  @import './user_splash/splash.scss';
