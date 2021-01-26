@@ -30,9 +30,17 @@ class SignUp extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        // debugger
+        this.state
         this.props.action(this.state)
 
+    }
+
+    handleSignInDemo(){
+        this.props.user.email = "demo_user@gmail.com"
+        this.props.user.username ="demo"
+        this.props.user.password="demopassword"
+        debugger
+        this.props.action(this.props.user)
     }
 
     handleChange(field) {
@@ -59,7 +67,11 @@ class SignUp extends React.Component {
                 <div className='sign-header-form'>
                     <h1 className='header-sign-form'>Create a SlackMe Account</h1>
                 </div>
-
+                <div className='demo-button'>
+                    <button onClick={() => this.handleSignInDemo()}>
+                        Try A Demo!
+                    </button>
+                </div>
                 <div className='form-sign-in'>
                     <form onSubmit={this.handleSubmit} className='form-sign'>
                         {this.handleErrors()}

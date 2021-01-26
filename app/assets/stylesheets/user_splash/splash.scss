@@ -433,6 +433,26 @@ hr{
     }
 }
 
+.demo-button{
+    display: flex;
+    justify-content: center;
+    // align-content: center;
+    button{
+        background-color: white;
+        color: rgb(90, 181, 241);
+        text-decoration: none;
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 150px;
+        padding-right: 180px;
+         border: 1px solid rgb(90, 181, 241);
+         border-radius: 5px;
+    }
+    button:hover{
+        box-shadow:3px 2px 9px rgba(0, 0, 0, 0.144);
+    }
+}
+
 .sign-header-form{
         display: flex;
         justify-content: center;
