@@ -18,9 +18,9 @@ const sessionReducer = (oldState={id:null}, action) => {
             nextState.id = action.user.id//got from line 10
             return nextState
         case REMOVE_USER:
-            debugger
+            // debugger
             delete nextState[action.userId]
-            debugger
+            // debugger
             return nextState
         case LOGOUT_CURRENT_USER:
             nextState.id = null

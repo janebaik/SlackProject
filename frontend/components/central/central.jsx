@@ -11,13 +11,13 @@ import { Link } from 'react-router-dom';
 class Central extends React.Component{
     constructor(props){
         super(props)
-        debugger
+        // debugger
         // debugger
     }
 
     deleteDemoUser(){
         if (this.props.currentUser.username === "demo"){
-            debugger
+            // debugger
             this.props.deleteUser(this.props.currentUser.id)
             // debugger
         }
