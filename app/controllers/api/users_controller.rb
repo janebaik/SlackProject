@@ -24,6 +24,13 @@ class Api::UsersController < ApplicationController
         render :show
     end
 
+    def destroy 
+        debugger
+        @user = User.find(params[:id])
+        @user.destroy
+        debugger
+        render :show
+    end
     # def update 
     #     # update user
     #     @user = User.find(params[:id])

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, deleteUser } from '../../actions/session_actions';
 import Central from './central'
+// import { deleteUser } from '../../actions/session_actions'
+
 
 // when a user is signed in 
 const msp = (state, ownProps) =>{
@@ -12,7 +14,8 @@ const msp = (state, ownProps) =>{
 
 const mdp = (dispatch) => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        deleteUser: (userId) => dispatch(deleteUser(userId))
     }
 }
 

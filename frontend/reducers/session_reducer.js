@@ -2,7 +2,8 @@
 
 import {
     RECEIVE_CURRENT_USER,
-    LOGOUT_CURRENT_USER
+    LOGOUT_CURRENT_USER,
+    REMOVE_USER
 } from '../actions/session_actions'
 import merge from 'lodash/merge';
 
@@ -15,6 +16,11 @@ const sessionReducer = (oldState={id:null}, action) => {
             // debugger
             // TODO: probably want to add debuggers here just in case (maybe look at what state consist of)
             nextState.id = action.user.id//got from line 10
+            return nextState
+        case REMOVE_USER:
+            debugger
+            delete nextState[action.userId]
+            debugger
             return nextState
         case LOGOUT_CURRENT_USER:
             nextState.id = null

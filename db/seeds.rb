@@ -11,3 +11,4 @@ User.destroy_all
 
 user_1 = User.create!({username: 'Jane', email: 'jane@gmail.com', password: 'ilovestars123'})
 user_1 = User.create!({username: 'Mona', email: 'mona@gmail.com', password: 'ilovestars123'})
+# demo_user = User.create!({id: 1, username: 'demo_user@gmail.com', email: 'demo', password: 'demopassword'})

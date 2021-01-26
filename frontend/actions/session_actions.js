@@ -4,30 +4,38 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const REMOVE_USER = 'REMOVE_USER';
 
 const receiveCurrentUser = (currentUser) => {
     return {
-        type: RECEIVE_CURRENT_USER,
+        type: 'RECEIVE_CURRENT_USER',
         user: currentUser
     }
 }
 
 const logoutCurrentUser = () => {
     return {
-        type: LOGOUT_CURRENT_USER
+        type: 'LOGOUT_CURRENT_USER'
     }
 }
 
 const receiveErrors = (errors) =>{
     return{
-        type: RECEIVE_SESSION_ERRORS,
+        type: 'RECEIVE_SESSION_ERRORS',
         errors: errors   //note its an array
     }
 }
 
 export const clearErrors = () =>{
     return {
-        type: CLEAR_ERROR
+        type: 'CLEAR_ERROR'
+    }
+}
+
+export const removeUser = (userId) => {
+    return {
+        type: 'REMOVE_USER',
+        userId: userId
     }
 }
 
@@ -52,5 +60,10 @@ export const signup = (user) => (dispatch) => {
 export const removeErrors = () => (dispatch) => {
     return SessionApiUtil.getUser()
         .then(() => dispatch(clearErrors()))
+}
+
+export const deleteUser = (userId) => (dispatch) => {
+    return SessionApiUtil.deleteUser(userId)
+        .then(() => dispatch(removeUser(userId)))
 }
 

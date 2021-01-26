@@ -39,7 +39,6 @@ class SignUp extends React.Component {
         this.props.user.email = "demo_user@gmail.com"
         this.props.user.username ="demo"
         this.props.user.password="demopassword"
-        debugger
         this.props.action(this.props.user)
     }
 

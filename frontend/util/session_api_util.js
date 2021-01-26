@@ -36,3 +36,10 @@ export const getUser = () => {
         })
     )
 }
+
+export const deleteUser = (userId) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/users/${userId}`,
+    })
+}
