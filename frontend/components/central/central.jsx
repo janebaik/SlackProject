@@ -15,18 +15,19 @@ class Central extends React.Component{
         // debugger
     }
 
-    deleteDemoUser(){
-        if (this.props.currentUser.username === "demo"){
+    logoutUser(){
+        this.props.logout();
+        if (this.props.currentUser.username === "demo") {
             // debugger
             this.props.deleteUser(this.props.currentUser.id)
             // debugger
         }
+
     }
     render(){
         return(
             <div>
-                {this.deleteDemoUser()}
-                <button className="header-button" onClick={this.props.logout}>Log Out</button>
+                <button className="header-button" onClick={()=>this.logoutUser()}>Log Out</button>
             </div>
             
         )
