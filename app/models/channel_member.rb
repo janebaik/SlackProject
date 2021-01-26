@@ -9,5 +9,8 @@
 #  updated_at :datetime         not null
 #
 class ChannelMember < ApplicationRecord
-  
+
+    belongs_to :channel 
+    belongs_to :user
+    
 end

@@ -21,6 +21,11 @@ class User < ApplicationRecord
     
     attr_reader :password
 
+    # 26.1.2020
+    has_many :channel_member
+    has_many :channel, through: :channel_member
+    #
+
 
     
     def self.find_by_credentials(email, password)
