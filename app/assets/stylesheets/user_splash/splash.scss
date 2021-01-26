@@ -60,6 +60,8 @@
 
 
 .nav-bar-right {
+            margin-right: 70px;
+
     ul{
         display: flex;
     }
@@ -157,6 +159,7 @@ hr{
 // FOOTER
 
 .footer-one{
+    
     background-color: $purple-splash;
     height: 375px;
     clip-path: ellipse(98% 100% at center top);
@@ -170,7 +173,7 @@ hr{
 .footer-one-items{
     #footer-button{
        background-color: white;
-       width:50%;
+       width:17%;
        height:50px;
        border-radius: 10px;
        border:none;
@@ -242,10 +245,11 @@ hr{
     border:none;
     border-radius: 5px;
     background-color:  $purple-splash;
-    padding:25px;
+    padding:20px;
     color:white;
     transition: .2s;
     font-weight: 900;
+    width:185px;
 }
 
 #splash-button-main:hover{
@@ -269,17 +273,19 @@ hr{
         display: flex;
         // flex-wrap: wrap;
         // height: 900px;
-        margin-bottom: 120px;
+        margin-bottom: 50px;
 
         header{
-            font-size: 70px;
+            font-size: 55px;
             font-weight: bolder;
-            padding-bottom:45px;
+            padding-top: 40px;
+            padding-bottom:20px;
+            line-height: 1.2;
             
         }
 
         p{
-            font-size: 23px;
+            font-size: 18px;
             padding-bottom:30px;
             width: 400px;
             line-height: 1.5;
@@ -287,25 +293,30 @@ hr{
         }
     }
     .bio-image-tag > img{
-        height: 447px;
-        padding-left: 110px;
+        padding-top: 35px;
+        // padding-bottom:30px;
+        height: 450px;
+        margin-right: 40px;
     }
     
     .bio-splash-2 > h1{
-        font-size: 50px;
-        font-weight: bolder;
-        padding-left: 130px;
+        font-size: 45px;
+        font-weight: 900;
+         padding-left: 85px;
         padding-bottom:20px;
+        line-height: 1.4;
     }
 
     .bio-splash-2  p {
-        padding-left: 130px;
         padding-bottom:20px;
+        padding-left: 85px;
+        padding-bottom:20px;
+        line-height: 1.6;
     }
 
    
     .bio-splash-2 button{
-        margin-left: 130px;
+            margin-left: 86px;
         margin-bottom:20px;
         border-radius: 5px;
         background-color: $background-splash;
@@ -333,13 +344,13 @@ hr{
     flex-flow: row;
 
     .bio-splash-3{
-        height:500px;
+        height:450px;
         box-shadow: 0px 0px 15px grey;
     }
 }
 
 .splash-content-master{
-    height: 700px;
+    // height: 700px;
 
     .splash-content{
     text-align: center;
@@ -395,7 +406,7 @@ hr{
         justify-content: space-evenly;
         padding:50px;
         img{
-            height: 100px;
+            height:55px;
         }
     }
 }

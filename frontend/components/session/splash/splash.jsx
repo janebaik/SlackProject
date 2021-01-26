@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Splash = (props) => {
     // Goal: sign up form
-
     return (
         <div>
         <div className='header-splash-div'>
@@ -13,8 +12,8 @@ const Splash = (props) => {
             {/* section one */}
             <div className='header-splash'>
                 <div className='bio-splash'>
-                    <header>Welcome to your SlackMe</header>
-                    <p> A place where ideas grow and inspirations can be created. Let's get things done, together!</p>
+                    <header>Welcome to your newer SlackMe</header>
+                        <p> A place where ideas grow and inspirations can be created. SlackMe is a place where people build new ideas on top of each other. Let's get things done, together!</p>
                     <Link to="/signup">
                         <button id='splash-button-main'>
                                 TRY FOR FREE
@@ -31,12 +30,12 @@ const Splash = (props) => {
                 </div>
                 <div className='bio-splash-2'>
                     <h1>
-                        A way to talk
+                        The easy way to communicate
                     </h1>
-                    <p>East to follow, Easy to connect</p>
-                    <Link to='/features'>
+                        <p>Where email inboxes can become very messy if you're not up to date with it, SlackMe follows a set system.</p>
+                    <Link to='/signup'>
                     <button>
-                        Features
+                        Try for Free
                     </button>
                     </Link>
                 </div>
@@ -68,10 +67,10 @@ const Splash = (props) => {
                     </div>
                 </div>
                 {/* three */}
-                {/* <div className='splash-content4'>
+                <div className='splash-content4'>
                     <a href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank"><img src={window.linked} alt="linkedin-logo" /></a>
                     <a href="https://github.com/janebaik" target="_blank"><img src={window.github} alt="github-logo" /></a>
-                </div> */}
+                </div>
             </div>
 
             <Footer/>
