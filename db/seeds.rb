@@ -10,5 +10,6 @@
 User.destroy_all
 
 user_1 = User.create!({username: 'Jane', email: 'jane@gmail.com', password: 'ilovestars123'})
-user_1 = User.create!({username: 'Mona', email: 'mona@gmail.com', password: 'ilovestars123'})
-# demo_user = User.create!({id: 1, username: 'demo_user@gmail.com', email: 'demo', password: 'demopassword'})
+user_2 = User.create!({username: 'Mona', email: 'mona@gmail.com', password: 'ilovestars123'})
+# author_1 = User.create!({id: 1, username:"wassap", email:"janefneiaiwefn", password:"afiwjfoiqjfoiejfwe"})
+# channel_1 = Channel.create!({name:"channel 1", status_public: true,author_id: 1, topic:"hmm" })
