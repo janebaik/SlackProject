@@ -27,35 +27,37 @@ const NavBar = () => {
                     <ul>
                         <li>
                             <Link to='/'>
-                                <img src={window.logoSymbol} alt="logo-nav" className='logo' />SlackMe
+                                <img src={window.logo} alt="logo-nav" className='logo' />
                             </Link>
                         </li>
                         {/* dropdown */}
-                        <li className='drop-nav'><a>Product</a>
-                            <ul className='drop-item'>
-                                <li>
-                                    <Link to='/features'>Features</Link>
-                                </li>
-                                <li>
-                                    <Link to='/channels'>Channel</Link>
-                                </li>
-                                <li>
-                                    <Link to='/customers'>Customers</Link>
-                                </li>
-                                <hr className='hr'/>
-                                <li>
-                                    <Link to='/goals'>Goal</Link>
-                                </li>
-                            </ul>
-                        </li>
-                        {/* end of dropdown */}
+                        {/* <div className='nav-header-left-item'> */}
+                            {/* <li className='drop-nav'><a>Product</a>
+                                <ul className='drop-item'>
+                                    <li>
+                                        <Link to='/features'>Features</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/channels'>Channel</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/customers'>Customers</Link>
+                                    </li>
+                                    <hr className='hr'/>
+                                    <li>
+                                        <Link to='/goals'>Goal</Link>
+                                    </li>
+                                </ul>
+                            </li> */}
+                            {/* end of dropdown */}
 
-                        <li>
-                            <a href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/janebaik" target="_blank">My Github</a>
-                        </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/janebaik" target="_blank">My Github</a>
+                            </li>
+                        {/* </div> */}
                     </ul>
                 </div>
 
@@ -68,7 +70,7 @@ const NavBar = () => {
                         </li>
                         <li>
                             <button id='splash-button'>
-                                <Link to="/signup">TRY FOR FREE</Link>
+                                <Link to="/signup" style={{ color:" white" }}>TRY FOR FREE</Link>
                             </button>
                         </li>
                     </ul>

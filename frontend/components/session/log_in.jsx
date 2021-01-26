@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LogIn extends React.Component {
-    constructor(props){
+    constructor(props) {
         // debugger
         super(props)
         this.state = this.props.user
@@ -13,26 +13,31 @@ class LogIn extends React.Component {
     //     this.props.login(this.props.currentUser)
     // }
 
+    componentDidMount() {
+        this.props.removeErrors()
+    }
+
     handleErrors() {
         const item = this.props.errors
-        if (item.length > 0){
+        if (item.length > 0) {
             return (
-            <p>{item}</p>
-        )}
+                <p>{item}</p>
+            )
+        }
         return null
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault()
         // debugger
         this.props.action(this.state)
-        
+
     }
 
-    handleChange(field){
-        return e => this.setState({[field]: e.currentTarget.value})
+    handleChange(field) {
+        return e => this.setState({ [field]: e.currentTarget.value })
     }
-    render(){
+    render() {
         return (
             <div className='form-sign-in-master'>
                 {/* section one */}
@@ -57,18 +62,18 @@ class LogIn extends React.Component {
                 <div className='form-sign-in'>
 
                     <form onSubmit={this.handleSubmit} className='form-sign'>
-                        <p>{this.handleErrors()}</p>
+                        {this.handleErrors()}
 
-                        <br/>
-                    <label>
-                            <input type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com'/>
-                    </label>
                         <br />
-                    <label>
-                        <input type="password" id='password' onChange={this.handleChange('password')} />
-                    </label>
+                        <label>
+                            <input type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com' />
+                        </label>
                         <br />
-                    <input type="submit" value="Sign in with Email" id='splash-button' />
+                        <label>
+                            <input type="password" id='password' onChange={this.handleChange('password')} />
+                        </label>
+                        <br />
+                        <input type="submit" value="Sign in with Email" id='splash-button' />
                     </form>
                 </div>
             </div>

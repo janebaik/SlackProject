@@ -27,3 +27,12 @@ export const logout = () => {
         })
     )
 }
+
+export const getUser = () => {
+    return (
+        $.ajax({
+            method: 'GET',
+            url: '/api/users',
+        })
+    )
+}

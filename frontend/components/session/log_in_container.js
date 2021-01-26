@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import LogIn from '../session/log_in'
-import {login} from '../../actions/session_actions'
+import { login, removeErrors } from '../../actions/session_actions'
 
 
 // state
@@ -26,7 +26,7 @@ import {login} from '../../actions/session_actions'
 
 // ^^ is all the states so we can visually see it but you can earse it if its confusing now
 
-const msp = (state, ownProps) =>{
+const msp = (state, ownProps) => {
     // debugger
     return {
         errors: state.errors.session, //idk if we need to index more we might have to, imma pause here and try to get that user to log in by going to log in jsx
@@ -36,8 +36,9 @@ const msp = (state, ownProps) =>{
 
 const mdp = dispatch => {
     return {
-        action: (user) => dispatch(login(user))
+        action: (user) => dispatch(login(user)),
+        removeErrors: () => dispatch(removeErrors())
     }
 }
 
-export default connect(msp,mdp)(LogIn)
+export default connect(msp, mdp)(LogIn)

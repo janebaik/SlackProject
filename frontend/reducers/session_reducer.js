@@ -14,7 +14,7 @@ const sessionReducer = (oldState={id:null}, action) => {
         case RECEIVE_CURRENT_USER:
             // debugger
             // TODO: probably want to add debuggers here just in case (maybe look at what state consist of)
-            nextState.id = action.user//got from line 10
+            nextState.id = action.user.id//got from line 10
             return nextState
         case LOGOUT_CURRENT_USER:
             nextState.id = null

@@ -28,9 +28,29 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className='footer-column'>
+                        <h1>Bucket List</h1>
+                        <ul>
+                            <li><a href="https://en.wikipedia.org/wiki/Cave_diving">Cave Diving</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Aurora#:~:text=An%20aurora%20(plural%3A%20auroras%20or,around%20the%20Arctic%20and%20Antarctic).">Aurora Lights</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Snowboarding">Snow Boarding</a></li>
+                            <li><a href="https://www.polarcruises.com/arctic/ships/icebreaker/50-years-victory-arctic/north-pole-ultimate-arctic-adventure#rates_63">Cruise</a></li>
+                        </ul>
+                    </div>
+                    <div className='footer-column'>
                         <h1>FAVORITE HOBBY</h1>
                         <ul>
-                            <li><a href="https://www.maangchi.com/recipe/jjajangmyeon" target="_blank" >Best Recipe</a></li>
+                            <li><a href="https://www.maangchi.com/recipe/jjajangmyeon" target="_blank" >Best Savory Recipe</a></li>
+                            <li><a href="https://sallysbakingaddiction.com/vanilla-cake/">Best Dessert Recipe</a></li>
+                        </ul>
+                    </div>
+                    <div className='footer-column'>
+                        <h1>Best Coffee</h1>
+                        <ul>
+                            <li><a href="https://club.atlascoffeeclub.com/best-coffee-for-cold-brew/" target="_blank" >Cold Brew</a></li>
+                            <li><a href="https://www.goodhousekeeping.com/food-recipes/cooking/a32896369/how-to-make-a-latte/">Latte</a></li>
+                            <li><a href="https://www.homegrounds.co/how-to-make-an-americano/">Americano</a></li>
+                            <li><a href="https://www.thespruceeats.com/how-to-make-coffee-4162028">Tips for Coffee</a></li>
+
                         </ul>
                     </div>
                     <div className='footer-column'>

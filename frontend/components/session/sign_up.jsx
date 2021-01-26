@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class SignUp extends React.Component {
     // Goal: sign up form
-    constructor(props){
+    constructor(props) {
         // debugger
         super(props)
         this.state = this.props.user
@@ -14,27 +14,31 @@ class SignUp extends React.Component {
     //     this.props.login(this.props.currentUser)
     // }
 
+    componentDidMount(){
+        this.props.removeErrors()
+    }
     handleErrors() {
         const item = this.props.errors
         if (item.length > 0) {
+            // debugger
             return (
-                <p>{item}</p>
+                <p>Invalid Entry</p>
             )
         }
         return null
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault()
         // debugger
         this.props.action(this.state)
 
     }
 
-    handleChange(field){
+    handleChange(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
-    render(){
+    render() {
         return (
             <div className='form-sign-in-master'>
 
@@ -58,14 +62,14 @@ class SignUp extends React.Component {
 
                 <div className='form-sign-in'>
                     <form onSubmit={this.handleSubmit} className='form-sign'>
-                        <p>{this.handleErrors()}</p>
+                        {this.handleErrors()}
                         <br />
                         <label>
                             <input type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com' />
                         </label>
                         <br />
                         <label>
-                            <input type="text" id='username' onChange={this.handleChange('username')} placeholder='Username'/>
+                            <input type="text" id='username' onChange={this.handleChange('username')} placeholder='Username' />
                         </label>
                         <br />
                         <label>
