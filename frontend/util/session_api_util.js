@@ -43,3 +43,13 @@ export const deleteUser = (userId) => {
         url: `/api/users/${userId}`,
     })
 }
+
+// channels
+
+export const getChannels = (user) => {
+    // debugger to see what user is 
+    return $.ajax({
+        method:"GET",
+        url:`/api/users/${user.id}/channels`
+    })
+}

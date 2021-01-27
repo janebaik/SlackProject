@@ -20,9 +20,11 @@ class SignUp extends React.Component {
     handleErrors() {
         const item = this.props.errors
         if (item.length > 0) {
-            // debugger
+            if (item[0] === 'Password digest Password cannot be empty') {
+                item[0] = 'Password cannot be empty'
+            }
             return (
-                <p>Invalid Entry</p>
+                <p>{item[0]}</p>
             )
         }
         return null

@@ -17,9 +17,9 @@ class Central extends React.Component{
 
     logoutUser(){
         this.props.logout();
-        if (this.props.currentUser.username === "demo") {
+        if (this.props.user.username === "demo") {
             // debugger
-            this.props.deleteUser(this.props.currentUser.id)
+            this.props.deleteUser(this.props.user.id)
             // debugger
         }
 

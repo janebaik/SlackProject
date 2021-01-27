@@ -12,17 +12,12 @@
 #
 class Channel < ApplicationRecord
 
-    validates :name, :status_public, :author_id, presence: true
-    validates :topic, length:{minimum: 3}, allow_blank: true # <-- not sure if I want to do this
+    validates :name, :author_id, presence: true
+    validates :author_id, length:{minimum: 1}, allow_blank: true 
 
-    has_many :channel_member
-    has_many :user, through: :channel_members
-
-    def self.find_by_name(name)
-        channel = Channel.find_by(name: name)
-        debugger
-        return nil unless channel
-        channel
-    end
+    has_many :channel_member, dependent: :destroy
+    has_many :user,   #endoiunt
+    through: :channel_member
+# get the author_id
 
 end

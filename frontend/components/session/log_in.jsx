@@ -20,6 +20,9 @@ class LogIn extends React.Component {
     handleErrors() {
         const item = this.props.errors
         if (item.length > 0) {
+            if (item[0] === 'Password digest Password cannot be empty'){
+                item[0] = 'Password cannot be empty'
+            }
             return (
                 <p>{item}</p>
             )

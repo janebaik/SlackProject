@@ -8,7 +8,7 @@ import Central from './central'
 const msp = (state, ownProps) =>{
     // debugger
     return {
-        currentUser: state.entities.users[state.session.id]
+        user: state.entities.users[state.session.id]
     }
 }
 

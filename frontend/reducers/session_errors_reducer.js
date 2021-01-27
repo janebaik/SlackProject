@@ -5,7 +5,7 @@ import {
     RECEIVE_SESSION_ERRORS,
     CLEAR_ERROR
 } from '../actions/session_actions'
-const sessionErrorsReducer = (oldState = [], action) =>{
+const sessionErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState)
     // debugger
     switch (action.type) {
@@ -14,7 +14,7 @@ const sessionErrorsReducer = (oldState = [], action) =>{
             // const nextState = Object.assign([], oldState)
             // nextState.push(action.errors)
             // action.errors
-            return ["Invalid credentials"]
+            return action.errors  
         case CLEAR_ERROR:
             return []
         case RECEIVE_CURRENT_USER:

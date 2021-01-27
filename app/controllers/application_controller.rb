@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
     # CELL
-    helper_method :current_user, :loggedin? 
+    helper_method :current_user, :loggedin?, :current_channels
     protect_from_forgery with: :exception # raises an excpetions when a request fails validations
 
     def current_user
-        # debugger
+        # debugger #good thing
         @current_user ||= User.find_by(session_token: session[:session_token])  
     end
 
@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
         # debugger
         !!current_user
     end
+
+    def current_channels
+        @channel ||= Channel.all
+    end
+
 end
