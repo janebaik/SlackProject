@@ -14,9 +14,9 @@ class User < ApplicationRecord
 
     validates :username, :email, presence: true
     validates :session_token, presence: true, uniqueness: true
-    debugger
+    # debugger
     validates :password, length: { minimum: 6, allow_nil: true}
-    debugger
+    # debugger
     validates :password_digest, presence: {message: "Password cannot be empty"}
 
 

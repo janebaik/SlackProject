@@ -2,12 +2,12 @@ class Api::ChannelsController < ApplicationController
 
     def create 
         # create a new channel
-        debugger
+        # debugger
         @channel = Channel.new(channel_params)
         @channel.author_id = current_user.id
-        debugger
+        # debugger
         if @channel.save
-            debugger
+            # debugger
             render :show
         else
             render json: ["There is an error in creating a channel"], status: 422
@@ -37,7 +37,7 @@ class Api::ChannelsController < ApplicationController
         # I added a "lock" that only author_id can update the
         # infor on channels (:name, :status_public, :author_id)
         if @channel.author_id == current_user.id || current_user.username == "demo"
-            debugger
+            # debugger
             if @channel.update(channel_params)
                 render :show
             else
@@ -50,13 +50,13 @@ class Api::ChannelsController < ApplicationController
     
     def destroy
         # destroy a channel
-        # place debugger here: seeing if you need to place logic here for author id to destroy
-        debugger
+        # debugger here: seeing if you need to place logic here for author id to destroy
+        # debugger
         if @channel = Channel.find(params[:id])
-            debugger
+            # debugger
             @channel.author_id == current_user.id
             @channel.destroy #gotta call destroy 
-            debugger
+            # debugger
             render :show
         else
             render json: ['You are not the author of this channel']

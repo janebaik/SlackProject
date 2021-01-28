@@ -1,0 +1,230 @@
+@import '../base/variables.scss';
+.channel-form-head {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(31, 31, 31, 0.657);
+  z-index: 95;
+}
+
+.channel-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); //transformation is characterized by a two-dimensional vector. Its coordinates define how much the element moves in each direction.
+
+
+    .channel-form-master{
+        padding:30px;
+        width: 520px;
+        height: 510px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 13px #4b4b4ba6;
+
+        .channel-1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            h1{
+                font-size: 27px;
+                font-weight: 900;
+            }
+            button{
+                border: none;
+                background: none;
+                color: #888888;
+                width: 35px;
+                border-radius: 5px;
+            }
+
+            button:hover{
+                background: rgba(212, 212, 212, 0.39);
+                color: black;
+                cursor: pointer;
+            }
+        }
+        .content-channel{
+            color: #4e4e4ed9;
+            letter-spacing: .25px;
+            padding-bottom: 20px;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .channel-name-label{
+
+            .channel-name-input{
+                display: flex;
+                flex-direction: row;
+                justify-content:flex-start;
+                label{
+                padding-right: 10px;
+                padding-bottom: 10px;
+                font-weight: 500;
+                font-size: 15px;
+                }
+                p{
+                    color: orange;
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+            }
+            input{
+                width: 100%;
+                border:none;
+                border: 1px solid gray;
+                border-radius: 2px;
+                height:35px;
+            }
+            input[type=text]:focus {
+                border:none;
+                border: 2px solid rgb(40, 169, 255);
+                outline: none;
+                box-shadow: 0 0 0 3px rgb(150, 213, 255);
+                border-radius: 2px;
+            }
+        }
+        .channel-name-input2{
+            display: flex;
+            flex-direction: row;
+            justify-content:flex-start;
+            label{
+                padding-top: 10px;
+                padding-right: 10px;
+                font-weight: 500;
+                font-size: 15px;
+                padding-bottom: 10px;
+            }
+             p{
+                 padding-top: 10px;
+                color: #4e4e4ed9;;
+                font-size: 12px;
+            }
+        }
+        .channel-name-input2-5{
+
+            p{
+                padding-top: 5px;
+                color: #4e4e4ed9;;
+                 font-size: 12px; 
+            }     
+        }
+    }
+    .channel-private{
+        .channel-private-label{
+            padding-top: 28px;
+            padding-bottom: 5px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .channel-private-toggle{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+
+            p{
+                padding-top: 5px;
+                color: #4e4e4ed9;
+                font-size: 14px;
+                line-height: 24px;
+            }
+
+            .toggle{
+                padding-top: 5px;
+                padding-left: 114px;
+            }
+        }
+
+        // .toggle{
+        //     position: relative;
+        //     display: inline-block;
+
+        //     .togglebutton{
+        //         display: none;
+        //     }
+
+        //     .toggle-button-label{
+        //          display: block;
+        //         width: 48px;
+        //         height: 24px;
+        //         text-indent: -150%;
+        //         clip: rect(0 0 0 0);
+        //         color: transparent;
+        //         user-select: none;
+        //     }
+
+        //     .toggle-button-label::before,
+        //     .toggle-button-label::after{
+        //         content: "";
+        //         display: block;
+        //         position: absolute;
+        //         cursor: pointer;
+        //     }
+        //     .toggle-button-label::before{
+        //         width: 100%;
+        //         height: 100%;
+        //         position: absolute;
+        //         cursor: pointer;
+        //     }
+        //     .toggle-button-label::after{
+        //         top: 0;         
+        //         left: 0;
+        //         width: 24px;
+        //         height: 24px;
+        //         border-radius: 50%;
+        //         background-color: #fff;
+        //         box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+        //         -webkit-transition: left 0.25s ease;
+        //         transition: left 0.25s ease;
+        //     }
+        //     .togglebutton:checked + .toggle-button-label::before{
+        //         background-color: #89c12d;
+        //     }
+        //     .togglebutton:checked + .toggle-button-label::after{
+        //         left: 24px;
+        //     }
+        // }
+    }
+
+    .last-channel-section{
+        padding-top: 70px;
+        display: flex;
+        justify-content: space-between;
+        .iconimage{
+            height: 20px;
+            width: auto;
+            padding-top: 6px;
+        }
+        .last-inner-channel-section{
+            color: #5ba2ff;
+            text-decoration: none;
+            font-size: 15px;
+            padding-left: 5px;
+        }
+        .last-inner-channel-section:hover{
+            color: gray;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        button{
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #525252;
+            border: none;
+            font-weight: 600;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            background: #d2d2d2;
+
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+}

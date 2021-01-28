@@ -5,7 +5,7 @@ import channelReducer from '../reducers/channel_reducer'
 // debugger
 const entitiesReducer = combineReducers({
     users: usersReducer,
-    channel: channelReducer //(make sure channel_reducer is exported as channelReducer and import tha path too)
+    channels: channelReducer //(make sure channel_reducer is exported as channelReducer and import tha path too)
 })
 
 export default entitiesReducer

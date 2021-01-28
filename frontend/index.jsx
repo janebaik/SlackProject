@@ -10,9 +10,9 @@ import { signup, login, logout } from './actions/session_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
-    debugger
+    // debugger
     if (window.currentUser) {
-        debugger
+        // debugger
         // persist user
         const preloadedState = {
             session: { id: window.currentUser.id  },
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             // not sure if the errors is formatted correctly
         };
-        debugger
+        // debugger
         store = configureStore(preloadedState);
         delete window.user;
     } else {

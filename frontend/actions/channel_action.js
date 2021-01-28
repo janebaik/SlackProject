@@ -16,7 +16,7 @@ const receiveAllChannels = (channels) =>{
     }
 }
 const receiveSingleChannel = (channel) => {
-    debugger
+    // debugger
     return{
         type: 'RECEIVE_SINGLE_CHANNEL',
         channel: channel
@@ -58,7 +58,7 @@ export const fetchChannel = (channelId) => (dispatch) =>{
 
 
 export const createChannel = (channel) => (dispatch) =>{
-    debugger
+    // debugger
     return ChannelApiUtil.createChannel(channel)
         .then((channel) => dispatch(receiveSingleChannel(channel)),
             (errors) => dispatch(receiveChannelErrors(errors.responseJSON)))

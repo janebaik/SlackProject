@@ -76,7 +76,7 @@ class LogIn extends React.Component {
                             <input type="password" id='password' onChange={this.handleChange('password')} />
                         </label>
                         <br />
-                        <input type="submit" value="Sign in with Email" id='splash-button' />
+                        <input type="submit" value="Sign in manually" id='splash-button' />
                     </form>
                 </div>
             </div>

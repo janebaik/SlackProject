@@ -1,17 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-// currentUser: { id: 2, username: "Mona", email: "mona@gmail.com" }
-// history: { length: 26, action: "POP", location: { … }, createHref: ƒ, push: ƒ, … }
-// location: { pathname: "/slack-me", search: "", hash: "", state: undefined }
-// logout: ƒ logout()
-// match: { path: "/slack-me", url: "/slack-me", isExact: true, params: { … } }
-
+import ChannelForm from '../channel/channel_container' //CONTAINER
 
 class Central extends React.Component{
     constructor(props){
         super(props)
-        // debugger
+        
         // debugger
     }
 
@@ -24,9 +18,23 @@ class Central extends React.Component{
         }
 
     }
+
+    openModal(modal){
+        this.props.openModal(modal)
+    }
+
     render(){
         return(
             <div>
+                <div>
+                    <nav className='channel-list-dropdown'>
+                        Channels
+                    </nav>
+                    <button onClick={() => this.openModal('Create a Channel')}>Create a channel</button>
+                    
+                </div>
+
+
                 <button className="header-button" onClick={()=>this.logoutUser()}>Log Out</button>
             </div>
             

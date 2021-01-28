@@ -1,6 +1,6 @@
 export const getChannels = () => {
     // index
-    debugger
+    // debugger
     return (
         $.ajax({
             method: "GET",
@@ -22,7 +22,7 @@ export const getChannel = (channelId) => {
 // ^^ the both get channels 
 
 export const createChannel = (channel) => {
-    debugger
+    // debugger
     return(
         $.ajax({
             method:"POST",

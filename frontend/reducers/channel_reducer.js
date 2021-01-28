@@ -8,18 +8,13 @@ import { RECEIVE_SINGLE_CHANNEL,
 const channelReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
     const nextState = Object.assign({}, oldState);
-    debugger
     switch (action.type) {
-        
+
         case RECEIVE_ALL_CHANNEL:
-            // getting all channels
-            nextState[action.channel.id] = action.channel
-            return nextState
-            case RECEIVE_SINGLE_CHANNEL:
-            debugger
-            // getting a channel
-            debugger
-            return { [action.channel.id]: action.channel }
+            return Object.assign({}, nextState, action.channels)
+        case RECEIVE_SINGLE_CHANNEL:
+            // debugger
+            return { [action.channel.id]: action.channel}
         case REMOVE_CHANNEL:
             delete nextState[action.channelId]
             return nextState
@@ -30,7 +25,7 @@ const channelReducer = (oldState = {}, action) => {
 
 export default channelReducer
 
-// use debugger
+// debugger
 //channelid: {
 //         id: 1,
 //             nameChannel: "general",
