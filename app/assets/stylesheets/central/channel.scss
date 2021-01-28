@@ -67,12 +67,23 @@
                 font-weight: 500;
                 font-size: 15px;
                 }
-                p{
+                .error-handleing{
                     color: orange;
                     font-weight: 500;
                     font-size: 15px;
                 }
+                
             }
+
+            .channel-name-symbol{
+                    .symbol{
+                        position: absolute;
+                        top: 175px;
+                        left: 40px;
+                        color: gray;
+                        width: 40px;
+                    }
+                }
             input{
                 width: 100%;
                 border:none;
@@ -86,6 +97,9 @@
                 outline: none;
                 box-shadow: 0 0 0 3px rgb(150, 213, 255);
                 border-radius: 2px;
+            }
+            .symbol-spacing{
+                padding-left: 23px;
             }
         }
         .channel-name-input2{
@@ -214,17 +228,19 @@
         button{
             padding-left: 20px;
             padding-right: 20px;
-            color: #525252;
+            color: white;
             border: none;
             font-weight: 600;
             padding-top: 10px;
             padding-bottom: 10px;
             border-radius: 5px;
-            background: #d2d2d2;
+            background: #007a53;
 
         }
         button:hover{
             cursor: pointer;
+            background: #009063;
+            box-shadow: 0px 0px 5px #5c5c5ca6;
         }
     }
 }

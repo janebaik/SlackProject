@@ -30,7 +30,7 @@ const removeSingleChannel = (channelId) => {
     }
 }
 
-const receiveChannelErrors = (errors) => {
+export const receiveChannelErrors = (errors) => {
     return{
         type: 'RECEIVE_CHANNEL_ERRORS',
         errors:errors

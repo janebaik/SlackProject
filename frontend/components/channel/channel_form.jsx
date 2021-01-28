@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class ChannelForm extends React.Component{
     constructor(props){
         super(props)
+        debugger
         this.state = {
             name:"",
             description: "",
@@ -16,16 +17,25 @@ class ChannelForm extends React.Component{
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
-    handleUsername(event){
-        this.setState({username: event.currentTarget.vale})
-    }
+    // handleUsername(event){
+    //     this.setState({username: event.currentTarget.vale})
+    // }
 
 
     handleSubmit(event){
         event.preventDefault();
         // debugger
+        // this.handleErrors()
         this.props.createChannel(this.state).then(this.props.closeModal)
         // check if author id is implemented in the background
+    }
+
+    handleErrors(){
+        debugger
+        if (this.props.errors.channels.length > 0) {
+            debugger
+            return <p>{this.props.channels.errors}</p>
+        }
     }
 
     handleToggle(event){
@@ -50,18 +60,19 @@ class ChannelForm extends React.Component{
                     <div>
                         <div className="channel-name-label">
                             <div className="channel-name-input">
-                                <label for="Name" >Name</label>
-                                <p>error Message</p>
+                                <label htmlFor="Name" >Name</label>
+                                {/* <p className="error-handleing">{this.handleErrors()}</p> */}
                             </div>
-                            <div>
-                                <input id="Name" type="text" value={this.state.name} onChange={this.handleChange("name")} />
+                            <div className="channel-name-symbol">
+                                <p className="symbol">#</p>
+                                <input className= "symbol-spacing"id="Name" type="text" value={this.state.name} onChange={this.handleChange("name")} />
                                 {/* <img src="" alt=""/> */}
                             </div>
                         </div>
                     </div>
                     <div className="channel-name-label">
                         <div className="channel-name-input2">
-                            <label for="Description">Description</label>
+                            <label htmlFor="Description">Description</label>
                             <p>(optional)</p>
                         </div>
                         <div className="channel-name-input2-5">
@@ -77,7 +88,7 @@ class ChannelForm extends React.Component{
                             <p> When a channel is set to private, it can only be viewed or join by invitation</p>
                             <div className="toggle">
                                 <input id="private-true" className="togglebutton" type="checkbox" value={status} onClick={() => this.handleToggle(status)} />
-                                <label for="private-true" className="toggle-button-label" ></label>
+                                <label htmlFor="private-true" className="toggle-button-label" ></label>
                             </div>
                         </div>
                     </div>
@@ -87,7 +98,7 @@ class ChannelForm extends React.Component{
                             </img>
                             <a className="last-inner-channel-section" href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
                         </div>
-                        <button value='submit'>Create</button>
+                        <button value='submit' onClick={()=> this.handleErrors}>Create</button>
                     </div>
                 </form>
 

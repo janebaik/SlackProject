@@ -9,7 +9,7 @@ const channelErrorsReducer = (oldState = [], action) => {
     // debugger
     switch (action.type) {
         case RECEIVE_CHANNEL_ERRORS:
-            // debugger
+            debugger
             // const nextState = Object.assign([], oldState)
             // nextState.push(action.errors)
             // action.errors
