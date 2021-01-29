@@ -1,25 +1,17 @@
-# README
+# SlackMe
+SlackMe is a replication of Slack which is a platform where people can communicate with each other by using the live chat feature through channels or dms. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live site](https://slackme-aa.herokuapp.com/)
 
-Things you may want to cover:
+### Technologies
+* **Ruby on Rails** is the framework I chose for the backend development.
+* **PostgreSQL** is the database management system that is used.
+* **JavaScript/React/Redux** is used to create the frontend features
+* **HTML/CSS** is used for the designing process
 
-* Ruby version
+[anchor](#channel-feature)
 
-* System dependencies
+**Comming Soon**
+# (channel-feature)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# SlackProject
+# Live Chat Feature
