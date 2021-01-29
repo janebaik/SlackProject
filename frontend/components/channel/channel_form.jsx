@@ -13,6 +13,7 @@ class ChannelForm extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+
     handleChange(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
@@ -98,7 +99,7 @@ class ChannelForm extends React.Component{
                             </img>
                             <a className="last-inner-channel-section" href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
                         </div>
-                        <button value='submit' onClick={()=> this.handleErrors}>Create</button>
+                        <button className={(this.state.name.length > 0 ? 'private-button' : 'submitButton')} value='submit' onClick={()=> this.handleErrors}>Create</button>
                     </div>
                 </form>
 

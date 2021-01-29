@@ -22,6 +22,7 @@ const mdp = (dispatch) =>{
     return{
         createChannel: (channel) => dispatch(createChannel(channel)),
         receiveChannelErrors: ((errors) => dispatch(receiveChannelErrors(errors))),
+
         closeModal: () => dispatch(closeModal())
     }
 }

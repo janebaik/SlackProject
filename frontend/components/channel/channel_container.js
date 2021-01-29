@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import {
     fetchChannels,
-    fetchChannel,
     updateChannel,
     removeChannelErrors,
     deleteChannel
@@ -10,8 +9,9 @@ import {
 import Channel from './channel';
 
 const msp = (state, ownProps) =>{
+    debugger
     return {
-
+       
     }
 }
 

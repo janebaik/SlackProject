@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ChannelForm from '../channel/channel_container' //CONTAINER
+import Channel from '../channel/channel_container';
 
+
+// For those who Signed in Signed Ups main page 
 class Central extends React.Component{
     constructor(props){
         super(props)
@@ -29,6 +31,8 @@ class Central extends React.Component{
                 <div>
                     <nav className='channel-list-dropdown'>
                         Channels
+                        <Channel /> 
+                        {/* ^^ its the side bars */}
                     </nav>
                     <button onClick={() => this.openModal('Create a Channel')}>Create a channel</button>
                     

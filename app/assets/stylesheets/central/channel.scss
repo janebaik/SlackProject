@@ -225,7 +225,19 @@
             text-decoration: underline;
             cursor: pointer;
         }
-        button{
+        .submitButton{
+            padding-left: 20px;
+            padding-right: 20px;
+            color: rgb(77, 77, 77); //change this to dark gray when inputs arent filled 
+            border: none;
+            font-weight: 600;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            background: lightgray; //change this to dark gray when inputs arent filled 
+        }
+
+        .private-button{
             padding-left: 20px;
             padding-right: 20px;
             color: white; //change this to dark gray when inputs arent filled 
@@ -237,7 +249,7 @@
             background: #007a53; //change this to dark gray when inputs arent filled 
 
         }
-        button:hover{
+        .private-button:hover{
             cursor: pointer;
             background: #009063;
             box-shadow: 0px 0px 5px #5c5c5ca6;
