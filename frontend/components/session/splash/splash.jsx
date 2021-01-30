@@ -13,8 +13,8 @@ const Splash = (props) => {
             {/* section one */}
             <div className='header-splash'>
                 <div className='bio-splash'>
-                    <header>Welcome to your SlackMe</header>
-                    <p> A place where ideas grow and inspirations can be created. Let's get things done, together!</p>
+                    <header>Welcome to your new SlackMe</header>
+                        <p>Teamwork can be hard, messy, complicated… and still the best way to work. That’s why we made Slack — a place where people get work done, together.</p>
                     <Link to="/signup">
                         <button id='splash-button-main'>
                                 TRY FOR FREE
@@ -31,7 +31,7 @@ const Splash = (props) => {
                 </div>
                 <div className='bio-splash-2'>
                     <h1>
-                        A way to talk
+                            A better way to communicate
                     </h1>
                     <p>East to follow, Easy to connect</p>
                     <Link to='/features'>

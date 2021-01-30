@@ -8,12 +8,11 @@
 }
 // HEADER
 .nav-bar{
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    padding: 20px;
-    margin: 23px;
     border-radius: 50px;
     position: absolute;
     right: -11px;
@@ -239,13 +238,14 @@ hr{
 
 // SPLASH
 #splash-button-main {
-    border:none;
+    border: none;
     border-radius: 5px;
-    background-color:  $purple-splash;
-    padding:25px;
-    color:white;
+    background-color: #541355;
+    padding: 20px;
+    color: white;
     transition: .2s;
     font-weight: 900;
+    width: 30%;
 }
 
 #splash-button-main:hover{
@@ -262,25 +262,24 @@ hr{
     flex-direction: column;
 
     .header-splash{
-        padding-top: 110px;
+        padding-top: 130px;
         padding-right: 40px;
         padding-left: 45px;
-        background-color: $background-splash;
+        background-color: #fff6f0;
         display: flex;
-        // flex-wrap: wrap;
-        // height: 900px;
-        margin-bottom: 120px;
+        margin-bottom: 40px;
 
         header{
-            font-size: 70px;
-            font-weight: bolder;
-            padding-bottom:45px;
+            font-size: 60px;
+            font-weight: 900;
+            padding-bottom: 25px;
+            line-height: 68px;     
             
         }
 
         p{
-            font-size: 23px;
-            padding-bottom:30px;
+            font-size: 19px;
+            padding-bottom: 30px;
             width: 400px;
             line-height: 1.5;
             letter-spacing: .25px;
@@ -292,20 +291,21 @@ hr{
     }
     
     .bio-splash-2 > h1{
-        font-size: 50px;
-        font-weight: bolder;
-        padding-left: 130px;
-        padding-bottom:20px;
+        font-size: 49px;
+        font-weight: 900;
+        padding-left: 85px;
+        padding-bottom: 20px;
+        padding-top: 25px;
     }
 
     .bio-splash-2  p {
-        padding-left: 130px;
+        padding-left: 85px;
         padding-bottom:20px;
     }
 
    
     .bio-splash-2 button{
-        margin-left: 130px;
+        margin-left: 85px;
         margin-bottom:20px;
         border-radius: 5px;
         background-color: $background-splash;
@@ -342,9 +342,9 @@ hr{
     height: 700px;
 
     .splash-content{
-    text-align: center;
-    box-sizing: inherit;
-    padding-top: 180px;
+        text-align: center;
+        box-sizing: inherit;
+        padding-top: 145px;
 
     .splash-content-header{
         padding-left: 250px;
