@@ -29,7 +29,7 @@ class UserSearch extends React.Component{
                 <label htmlFor="userMember"></label>Add People
                 <input type="text" id='userMember' value={this.props.inputVal} onChange={this.handleChange}/>
                 <ul>
-                    {results}
+                    {/* {results} */}
                 </ul>
                 {/* Ternanary */}
                 <button>Done</button>
