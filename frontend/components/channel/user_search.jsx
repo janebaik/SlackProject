@@ -1,42 +1,84 @@
-// autocomplete
 import React from 'react';
 
-// It should contain an input field and an unordered list.
-// Create an <li> inside the <ul> for every name that begins with the value in the input box.
-// You'll need to pass a unique key property to each <li> or 
-// React will grumble to all your console-reading users about its unfair working conditions.
-
-
-class UserSearch extends React.Component{
+class UserSearchForm extends React.Component{
     constructor(props){
         super(props)
         debugger
         this.state = {
             inputVal: ''
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event){
-        this.setState({inputVal: event.currentTarget.value})
+    componentDidMount(){
+        this.props.fetchUsers()
     }
-    // handleMatches
 
+    handleChange(field) {
+        return event => this.setState({ [field]:event.currentTarget.value });
+    }
+
+    handleMatches(names){
+        debugger
+        const matches = [];
+        if (this.state.inputVal.length === 0) {
+            return matches;
+        }
+        names.forEach(name => {
+            const letters = name.slice(0,this.state.inputVal.length);
+            if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
+                matches.push(name);
+            }
+        });
+
+        if (matches.length === 0) {
+            matches.push('No matches found');
+        }
+
+        return matches;
+    }
+
+    handleInsertion(){
+        // want to be able to add the user in the text box
+        // return a collection of userId's to add members to the channels
+    }
+
+    handleSubmit(){
+        // actually adding the user to the channel
+    }
     render(){
-        // const results = the results of all the inputted value that MATCHES the 
-        // input with <li key={i}>result</li>
+        let names = this.props.users.map(a => a.username);
+        const results = this.handleMatches(names)
+        
         return(
             <div>
-                <label htmlFor="userMember"></label>Add People
-                <input type="text" id='userMember' value={this.props.inputVal} onChange={this.handleChange}/>
-                <ul>
-                    {/* {results} */}
-                </ul>
-                {/* Ternanary */}
-                <button>Done</button>
-                <button>Skip for now</button>
+                <form className="user-search-form" >
+                    <label htmlFor="userMember">Add People</label>
+                    <p>X</p>
+                    <p># this.props.channelname</p>
+
+
+                    <input type="radio" id='addall' value="add all"/>
+                    <label htmlFor="addall">Add all memebers of ____</label>
+                    {/* <label htmlFor="addlall">Add all members of {this.props.channel}</label> */}
+                    <input type="radio" name="" id="addspecific" value="add specific"/>
+                    <label htmlFor="addspecific">Add specific people</label>
+
+
+                    <input type="text" id='userMember' value={this.state.inputVal} onChange={this.handleChange("inputVal")} />
+                    
+                    <ul>
+                        <li onClick={() => this.handleInsertion()}>{results}</li>
+                    </ul>
+
+
+                    <button value="submit">Done</button>
+                    <button>Skip for now</button>
+                </form>
             </div>
         )
     }
 }
 
-export default UserSearch;
+export default UserSearchForm;

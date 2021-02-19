@@ -9,6 +9,7 @@
 
 User.destroy_all
 Channel.destroy_all
+demoUser = User.create!({username: 'demo_user', email: 'demo_user@gmail.com', password: 'ilovestars123'})
 user_1 = User.create!({username: 'Jane', email: 'jane@gmail.com', password: 'ilovestars123'})
 user_2 = User.create!({username: 'Mona', email: 'mona@gmail.com', password: 'ilovestars123'})
 author_1 = User.create!({id: 1, username:"wassap", email:"janefneiaiwefn", password:"afiwjfoiqjfoiejfwe"})

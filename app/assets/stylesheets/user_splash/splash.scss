@@ -498,16 +498,36 @@ hr{
         // padding-bottom: 50px;
 }
 
+
 .form-sign-in{
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
 
+    .signin-errors{
+        font-size: 12px;
+        border: 1px solid red;
+        background-color: #ffb6c152;
+        position: relative;
+        top: -11px;
+        left: 10px;
+        padding: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 400px;
+        height: 40px;
+        color: #272727db;
+}
+
     input{
         height:40px;
         width: 400px;
         margin:10px;
+        
+    }
+    .input-error{
+        border: 1px solid red;
     }
 }
 
@@ -544,4 +564,3 @@ hr{
         }
     }
 }
-

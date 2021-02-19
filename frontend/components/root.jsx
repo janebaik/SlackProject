@@ -11,7 +11,6 @@ const Root = ({store}) => {
             <HashRouter>
                 {/* app is where we will define our routes */}
                 <App/> 
-                {/* ^^ Placed UserSearch here since we arent going to route to these forms */}
             </HashRouter>
         </Provider>
     )

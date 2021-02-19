@@ -13,12 +13,13 @@ class Central extends React.Component{
 
     logoutUser(){
         this.props.logout();
-        if (this.props.user.username === "demo") {
-            // debugger
-            this.props.deleteUser(this.props.user.id)
-            // debugger
-        }
-
+         //if you want to earse all demo users  
+        //  BONUS TODO: you can earse all the demo users after a certain amount of time
+        // if (this.props.user.username.includes("demo")) {
+        //     // debugger
+        //     this.props.deleteUser(this.props.user.id)
+        //     // debugger
+        // }
     }
 
     openModal(modal){
@@ -35,7 +36,8 @@ class Central extends React.Component{
                         {/* ^^ its the side bars */}
                     </nav>
                     <button onClick={() => this.openModal('Create a Channel')}>Create a channel</button>
-                    
+                    <button onClick={() => this.openModal('Add users')}>Add users</button>
+
                 </div>
 
 

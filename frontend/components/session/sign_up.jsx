@@ -7,7 +7,8 @@ class SignUp extends React.Component {
         // debugger
         super(props)
         this.state = this.props.user
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSignInDemo = this.handleSignInDemo.bind(this)
     }
     // Goal: login form
     // componentDidMount(){
@@ -24,7 +25,7 @@ class SignUp extends React.Component {
                 item[0] = 'Password cannot be empty'
             }
             return (
-                <p>{item[0]}</p>
+                <p className="signin-errors">{item[0]}</p>
             )
         }
         return null
@@ -37,17 +38,17 @@ class SignUp extends React.Component {
 
     }
 
-    handleSignInDemo(){
-        this.props.user.email = "demo_user@gmail.com"
-        this.props.user.username ="demo"
-        this.props.user.password="demopassword"
-        this.props.action(this.props.user)
+    handleSignInDemo(e){
+        // sign in the demo user in the seed
+        e.preventDefault();
+        this.props.login({ username: 'demo_user', email: 'demo_user@gmail.com', password: 'ilovestars123' })
     }
 
     handleChange(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
     render() {
+        const errors = this.handleErrors() 
         return (
             <div className='form-sign-in-master'>
 
@@ -69,25 +70,27 @@ class SignUp extends React.Component {
                     <h1 className='header-sign-form'>Create a SlackMe Account</h1>
                 </div>
                 <div className='demo-button'>
-                    <button onClick={() => this.handleSignInDemo()}>
+                    <button onClick={this.handleSignInDemo}>
                         Try A Demo!
                     </button>
                 </div>
                 <div className='form-sign-in'>
                     <form onSubmit={this.handleSubmit} className='form-sign'>
-                        {this.handleErrors()}
                         <br />
                         <label>
-                            <input type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com' />
+                            <input className={errors ? "input-error" : ""} type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com' />
                         </label>
+                        {errors}
                         <br />
                         <label>
-                            <input type="text" id='username' onChange={this.handleChange('username')} placeholder='Username' />
+                            <input className={errors ? "input-error" : ""} type="text" id='username' onChange={this.handleChange('username')} placeholder='Username' />
                         </label>
+                        {errors}
                         <br />
                         <label>
-                            <input type="password" id='password' onChange={this.handleChange('password')} />
+                            <input className={errors ? "input-error" : ""} type="password" id='password' onChange={this.handleChange('password')} />
                         </label>
+                        {errors}
                         <br />
                         <input type="submit" value="Sign up" id='splash-button' />
                     </form>

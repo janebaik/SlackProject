@@ -1,6 +1,8 @@
 // GOAL: to keep track of ALL users
 
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
+import {
+    RECEIVE_CURRENT_USER,
+    RECEIVE_ALL_USERS } from '../actions/session_actions'
 
 const usersReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
@@ -9,8 +11,10 @@ const usersReducer = (oldState = {}, action) => {
         case RECEIVE_CURRENT_USER:
             // debugger
             // look below if you forget what this means
-            Object.assign(nextState,{[action.user.id]: action.user})
-            return nextState
+            return action.user
+        case RECEIVE_ALL_USERS:
+            // debugger
+            return action.users
         default:
             return oldState;
     }

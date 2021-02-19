@@ -1,6 +1,9 @@
 # showing ALL users
-@users.each do |user|
-    json.set! user.id do
-        json.extract! user, :username, :email
+# debugger
+@users.each do |user| 
+    json.set! user.id do 
+        json.extract! user, :id, :username
+        # debugger
     end
 end
+

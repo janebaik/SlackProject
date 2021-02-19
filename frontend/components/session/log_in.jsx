@@ -16,20 +16,18 @@ class LogIn extends React.Component {
     componentDidMount() {
         this.props.removeErrors()
     }
-
     handleErrors() {
         const item = this.props.errors
         if (item.length > 0) {
-            if (item[0] === 'Password digest Password cannot be empty'){
+            if (item[0] === 'Password digest Password cannot be empty') {
                 item[0] = 'Password cannot be empty'
             }
             return (
-                <p>{item}</p>
+                <p className="signin-errors">{item[0]}</p>
             )
         }
         return null
     }
-
     handleSubmit(e) {
         e.preventDefault()
         // debugger
@@ -41,6 +39,7 @@ class LogIn extends React.Component {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
     render() {
+        const errors = this.handleErrors() 
         return (
             <div className='form-sign-in-master'>
                 {/* section one */}
@@ -65,16 +64,17 @@ class LogIn extends React.Component {
                 <div className='form-sign-in'>
 
                     <form onSubmit={this.handleSubmit} className='form-sign'>
-                        {this.handleErrors()}
 
                         <br />
                         <label>
-                            <input type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com' />
+                            <input className={errors ? "input-error" : ""}  type="text" id='email' onChange={this.handleChange('email')} placeholder='name@work-email.com' />
                         </label>
+                        {errors}
                         <br />
                         <label>
-                            <input type="password" id='password' onChange={this.handleChange('password')} />
+                            <input className={errors ? "input-error" : ""}  type="password" id='password' onChange={this.handleChange('password')} />
                         </label>
+                        {errors}
                         <br />
                         <input type="submit" value="Sign in manually" id='splash-button' />
                     </form>

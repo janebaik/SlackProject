@@ -10,18 +10,16 @@ import { signup, login, logout } from './actions/session_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
-    // debugger
     if (window.currentUser) {
         // debugger
         // persist user
         const preloadedState = {
             session: { id: window.currentUser.id  },
-            entities: {
-                // TODO:may want to change this line 20(when you refresh all the users are refreshed)
-                users: { [window.currentUser.id]: window.currentUser },
-                // channels: { [window.currentChannel]: window.currentChannel }
-                // if you want this to persist then go to root.html.erb
-            }, 
+            // entities: {
+                // users: { [window.user.id]: window.users },
+            //     // channels: { [window.currentChannel]: window.currentChannel }
+            //     // if you want this to persist then go to root.html.erb
+            // }, 
             errors: {
                 session: [window.currentUser.errors]
             }

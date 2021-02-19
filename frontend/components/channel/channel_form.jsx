@@ -29,6 +29,7 @@ class ChannelForm extends React.Component{
         // this.handleErrors()
         this.props.createChannel(this.state).then(this.props.closeModal)
         // check if author id is implemented in the background
+        
     }
 
     handleErrors(){

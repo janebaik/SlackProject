@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal} from '../../actions/modal_actions';
 import {connect} from 'react-redux';
 import ChannelForm from '../channel/channel_form_container';
+import UserSearchForm from "../channel/user_search_container";
 
 function Modal({modal, closeModal}) {
     // debugger
@@ -10,10 +11,14 @@ function Modal({modal, closeModal}) {
         return null;
     }
     let component;
+    debugger
     switch (modal) {
         case "Create a Channel":
             // debugger
             component = <ChannelForm/>;
+            break
+        case "Add users":
+            component = <UserSearchForm/>
             break
         default:
             return null;

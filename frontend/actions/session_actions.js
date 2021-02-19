@@ -5,6 +5,14 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const REMOVE_USER = 'REMOVE_USER';
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS'
+
+const recieveAllUsers = (users) =>{
+    return {
+        type: 'RECEIVE_ALL_USERS',
+        users: users
+    }
+}
 
 const receiveCurrentUser = (currentUser) => {
     return {
@@ -65,5 +73,10 @@ export const removeErrors = () => (dispatch) => {
 export const deleteUser = (userId) => (dispatch) => {
     return SessionApiUtil.deleteUser(userId)
         .then(() => dispatch(removeUser(userId)))
+}
+
+export const fetchAllUsers = () => dispatch =>{
+    return SessionApiUtil.getUser()
+        .then((users) => dispatch(recieveAllUsers(users)))
 }
 
