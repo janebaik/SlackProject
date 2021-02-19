@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class ChannelForm extends React.Component{
     constructor(props){
         super(props)
-        debugger
+         
         this.state = {
             name:"",
             description: "",
@@ -25,7 +25,7 @@ class ChannelForm extends React.Component{
 
     handleSubmit(event){
         event.preventDefault();
-        // debugger
+        //  
         // this.handleErrors()
         this.props.createChannel(this.state).then(this.props.closeModal)
         // check if author id is implemented in the background
@@ -33,21 +33,21 @@ class ChannelForm extends React.Component{
     }
 
     handleErrors(){
-        debugger
+         
         if (this.props.errors.channels.length > 0) {
-            debugger
+             
             return <p>{this.props.channels.errors}</p>
         }
     }
 
     handleToggle(event){
-        // debugger
+        //  
         this.setState({status_public: !this.state.status_public});
-        // debugger
+        //  
     }
 
     render(){
-        // debugger
+        //  
         // cannot change it back to true because line 57 never gets updated
         return (
             <div className='channel-form-master'>

@@ -7,7 +7,7 @@ import ChannelItem from './channeItem';
 class Channel extends React.Component{
     constructor(props){
         super(props)
-        debugger
+         
     }
 
     // componentDidMount(){

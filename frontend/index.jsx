@@ -11,7 +11,7 @@ import { signup, login, logout } from './actions/session_actions'
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
-        // debugger
+        //  
         // persist user
         const preloadedState = {
             session: { id: window.currentUser.id  },
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             // not sure if the errors is formatted correctly
         };
-        // debugger
+        //  
         store = configureStore(preloadedState);
         delete window.user;
     } else {

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception # raises an excpetions when a request fails validations
 
     def current_user
-        # debugger #good thing
+        #   #good thing
         @current_user ||= User.find_by(session_token: session[:session_token])  
     end
 
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
 
     def loggedin?
-        # debugger
+        #  
         !!current_user
     end
 

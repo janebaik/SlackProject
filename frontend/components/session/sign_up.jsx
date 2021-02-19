@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class SignUp extends React.Component {
     // Goal: sign up form
     constructor(props) {
-        // debugger
+        //  
         super(props)
         this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this);

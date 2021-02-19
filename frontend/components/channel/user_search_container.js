@@ -6,14 +6,14 @@ import { fetchAllUsers } from '../../actions/session_actions';
 // actions
 
 const msp = (state, ownProps) =>{
-    debugger
+     
     return{
         inputVal: "",
         users: Object.values(state.entities.users)
     }
 }
 const mdp = (dispatch) =>{
-    debugger
+     
     return{
         fetchUsers: () => dispatch(fetchAllUsers()),
         closeModal: () => dispatch(closeModal())

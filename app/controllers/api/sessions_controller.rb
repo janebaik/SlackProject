@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
         # logout
         @user = current_user
         if @user
-            # debugger
+            #  
             logout!
             render json: {}, status: 200
         else

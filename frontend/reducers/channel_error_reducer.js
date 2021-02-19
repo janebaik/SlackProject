@@ -6,10 +6,10 @@ import {
 } from '../actions/channel_action'
 const channelErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState)
-    // debugger
+    //  
     switch (action.type) {
         case RECEIVE_CHANNEL_ERRORS:
-            debugger
+             
             // const nextState = Object.assign([], oldState)
             // nextState.push(action.errors)
             // action.errors

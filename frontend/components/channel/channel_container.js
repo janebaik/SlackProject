@@ -9,7 +9,7 @@ import {
 import Channel from './channel';
 
 const msp = (state, ownProps) =>{
-    debugger
+     
     return {
        
     }

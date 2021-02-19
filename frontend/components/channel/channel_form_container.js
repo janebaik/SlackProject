@@ -5,7 +5,7 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 import ChannelForm from './channel_form';
 
 const msp = (state, ownProps) =>{
-    debugger
+     
     return {
         channel: {
             name:"",
@@ -19,7 +19,7 @@ const msp = (state, ownProps) =>{
     }
 }
 const mdp = (dispatch) =>{
-    debugger //what is modal (make sure its add users)
+      //what is modal (make sure its add users)
     return{
         createChannel: (channel) => dispatch(createChannel(channel)),
         receiveChannelErrors: ((errors) => dispatch(receiveChannelErrors(errors))),

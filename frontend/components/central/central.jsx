@@ -8,7 +8,7 @@ class Central extends React.Component{
     constructor(props){
         super(props)
         
-        // debugger
+        //  
     }
 
     logoutUser(){
@@ -16,9 +16,9 @@ class Central extends React.Component{
          //if you want to earse all demo users  
         //  BONUS TODO: you can earse all the demo users after a certain amount of time
         // if (this.props.user.username.includes("demo")) {
-        //     // debugger
+        //     //  
         //     this.props.deleteUser(this.props.user.id)
-        //     // debugger
+        //     //  
         // }
     }
 

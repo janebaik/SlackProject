@@ -3,7 +3,7 @@ import React from 'react';
 class UserSearchForm extends React.Component{
     constructor(props){
         super(props)
-        debugger
+         
         this.state = {
             inputVal: ''
         };
@@ -20,7 +20,7 @@ class UserSearchForm extends React.Component{
     }
 
     handleMatches(names){
-        debugger
+         
         const matches = [];
         if (this.state.inputVal.length === 0) {
             return matches;

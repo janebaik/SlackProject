@@ -5,16 +5,16 @@ import ChannelForm from '../channel/channel_form_container';
 import UserSearchForm from "../channel/user_search_container";
 
 function Modal({modal, closeModal}) {
-    // debugger
+    //  
     if (!modal){
-        // debugger
+        //  
         return null;
     }
     let component;
-    debugger
+     
     switch (modal) {
         case "Create a Channel":
-            // debugger
+            //  
             component = <ChannelForm/>;
             break
         case "Add users":
@@ -34,7 +34,7 @@ function Modal({modal, closeModal}) {
 }
 
 const msp = (state, ownProps) => {
-    // debugger
+    //  
     return {
         modal: state.ui.modal
     };

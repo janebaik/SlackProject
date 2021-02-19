@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class LogIn extends React.Component {
     constructor(props) {
-        // debugger
+        //  
         super(props)
         this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -30,7 +30,7 @@ class LogIn extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault()
-        // debugger
+        //  
         this.props.action(this.state)
 
     }

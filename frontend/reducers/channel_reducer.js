@@ -13,7 +13,7 @@ const channelReducer = (oldState = {}, action) => {
         case RECEIVE_ALL_CHANNEL:
             return Object.assign({}, nextState, action.channels)
         case RECEIVE_SINGLE_CHANNEL:
-            // debugger
+            //  
             return { [action.channel.id]: action.channel}
         case REMOVE_CHANNEL:
             delete nextState[action.channelId]
@@ -25,7 +25,7 @@ const channelReducer = (oldState = {}, action) => {
 
 export default channelReducer
 
-// debugger
+//  
 //channelid: {
 //         id: 1,
 //             nameChannel: "general",
