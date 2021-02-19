@@ -12,7 +12,12 @@
 #
 class Channel < ApplicationRecord
 
-    validates :name, :status_public, :author_id, presence: true
-    # validates :topic allow_nil: true  <-- not sure if I want to do this
+    validates :name, :author_id, presence: true
+    validates :author_id, length:{minimum: 1}, allow_blank: true 
+
+    has_many :channel_member, dependent: :destroy
+    has_many :user,   #endoiunt
+    through: :channel_member
+# get the author_id
 
 end

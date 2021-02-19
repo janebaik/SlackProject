@@ -6,6 +6,7 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :show
         else
+            #  
             render json: @user.errors.full_messages, status: 422
         end
     end
@@ -14,6 +15,7 @@ class Api::UsersController < ApplicationController
     def index
         # display all the users 
         @users = User.all
+        #  
         # render json: @users
         render :index
     end
@@ -25,10 +27,10 @@ class Api::UsersController < ApplicationController
     end
 
     def destroy 
-        # debugger
+        #  
         @user = User.find(params[:id])
         @user.destroy
-        # debugger
+        #  
         render :show
     end
     # def update 

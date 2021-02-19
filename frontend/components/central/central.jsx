@@ -1,32 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-// currentUser: { id: 2, username: "Mona", email: "mona@gmail.com" }
-// history: { length: 26, action: "POP", location: { … }, createHref: ƒ, push: ƒ, … }
-// location: { pathname: "/slack-me", search: "", hash: "", state: undefined }
-// logout: ƒ logout()
-// match: { path: "/slack-me", url: "/slack-me", isExact: true, params: { … } }
+import Channel from '../channel/channel_container';
 
 
+// For those who Signed in Signed Ups main page 
 class Central extends React.Component{
     constructor(props){
         super(props)
-        // debugger
-        // debugger
+        
+        //  
     }
 
     logoutUser(){
         this.props.logout();
-        if (this.props.currentUser.username === "demo") {
-            // debugger
-            this.props.deleteUser(this.props.currentUser.id)
-            // debugger
-        }
-
+         //if you want to earse all demo users  
+        //  BONUS TODO: you can earse all the demo users after a certain amount of time
+        // if (this.props.user.username.includes("demo")) {
+        //     //  
+        //     this.props.deleteUser(this.props.user.id)
+        //     //  
+        // }
     }
+
+    openModal(modal){
+        this.props.openModal(modal)
+    }
+
     render(){
         return(
             <div>
+                <div>
+                    <nav className='channel-list-dropdown'>
+                        Channels
+                        <Channel /> 
+                        {/* ^^ its the side bars */}
+                    </nav>
+                    <button onClick={() => this.openModal('Create a Channel')}>Create a channel</button>
+                    <button onClick={() => this.openModal('Add users')}>Add users</button>
+
+                </div>
+
+
                 <button className="header-button" onClick={()=>this.logoutUser()}>Log Out</button>
             </div>
             

@@ -12,20 +12,29 @@
 #
 class User < ApplicationRecord
 
-    validates :username, :email, :password_digest, presence: true
+    validates :username, :email, presence: true
     validates :session_token, presence: true, uniqueness: true
-    validates :password, length: { minimum: 6 }, allow_nil: true
+    #  
+    validates :password, length: { minimum: 6, allow_nil: true}
+    #  
+    validates :password_digest, presence: {message: "Password cannot be empty"}
 
 
     after_initialize :ensure_session_token
     
     attr_reader :password
 
+    # 26.1.2020
+    has_many :channel_member, dependent: :destroy
+    has_many :channel,
+    through: :channel_member
+    #
+
 
     
     def self.find_by_credentials(email, password)
         user = User.find_by(email:email)
-        # debugger
+        #  
         return nil unless user && user.is_password?(password)
         user
     end

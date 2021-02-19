@@ -1,9 +1,11 @@
 // GOAL: to keep track of all relational data
 import {combineReducers} from 'redux'
 import usersReducer from '../reducers/users_reducer'
-// debugger
+import channelReducer from '../reducers/channel_reducer'
+//  
 const entitiesReducer = combineReducers({
-    users: usersReducer
+    users: usersReducer,
+    channels: channelReducer //(make sure channel_reducer is exported as channelReducer and import tha path too)
 })
 
 export default entitiesReducer

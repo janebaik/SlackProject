@@ -13,14 +13,14 @@ const sessionReducer = (oldState={id:null}, action) => {
     const nextState = merge({}, oldState);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            // debugger
-            // TODO: probably want to add debuggers here just in case (maybe look at what state consist of)
+            //  
+            // TODO: probably want to add  s here just in case (maybe look at what state consist of)
             nextState.id = action.user.id//got from line 10
             return nextState
         case REMOVE_USER:
-            // debugger
+            //  
             delete nextState[action.userId]
-            // debugger
+            //  
             return nextState
         case LOGOUT_CURRENT_USER:
             nextState.id = null

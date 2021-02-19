@@ -17,14 +17,11 @@ class Api::SessionsController < ApplicationController
         # logout
         @user = current_user
         if @user
-            # debugger
+            #  
             logout!
-            # @TODO I want to redirect to the homepage
             render json: {}, status: 200
         else
             render json: ['You are not signed in'], status: 404
-             # @TODO After showing this message 
-                # I want to redirect to the homepage
         end
     end
 

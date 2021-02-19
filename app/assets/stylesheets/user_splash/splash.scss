@@ -12,14 +12,13 @@
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    padding: 20px;
     margin: 23px;
     border-radius: 50px;
     position: absolute;
-    right: -11px;
+    right: -26px;
     top: 0;
     width: 100%;
-    font-weight: bolder;
+    font-weight:700;
     z-index: 999;
     margin-right: 10px;
     padding-left: 100px;
@@ -75,6 +74,7 @@
         padding:10px;
         display: block;
         color:black;
+        font-weight: 500;
     }
 
     a:hover{
@@ -85,7 +85,14 @@
 #splash-button {
     border:none;
     color: white;
-    font-weight: 900;
+    font-weight: 500;
+    font-size: 16px;
+    // padding: 10px;
+    // padding-top: 5px;
+    // padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right:5px;
+    
     
 }
 #splash-button {
@@ -145,6 +152,7 @@ li > :link{
 
   :link:hover{
       color:white;
+      
       width:100%;
   }
 }
@@ -172,11 +180,14 @@ hr{
 
 .footer-one-items{
     #footer-button{
+        margin: 35px;
        background-color: white;
        width:17%;
        height:50px;
        border-radius: 10px;
        border:none;
+       font-weight: 500;
+       color: $purple-splash;
        
        :link{
            color: $purple-splash;
@@ -213,14 +224,16 @@ hr{
     align-items:center;
     padding-bottom: 35px;
     h1{
-        font-weight: bolder;
+        font-weight: 500;
+        color:rgb(34, 34, 34);
     }
     ul > li{
         margin-top: 15px;
     }
     a{
         text-decoration: none;
-        color:rgb(124, 124, 124);
+        color:rgb(68, 68, 68);
+        font-weight: 400;
         font-size: 14px;
     }
     a:hover{
@@ -248,7 +261,7 @@ hr{
     padding:20px;
     color:white;
     transition: .2s;
-    font-weight: 900;
+    font-weight: 500;
     width:185px;
 }
 
@@ -324,17 +337,25 @@ hr{
         padding-left: 40px;
         padding-right:40px;
         color:$purple-splash;
-        border: 2px solid $purple-splash;
+        border: 1px solid $purple-splash;
         cursor: pointer;
-        font-weight: 900;
+        font-weight: 500;
     }
 
     .bio-splash-2 button:hover{
         color:rgb(65, 0, 88);
-        border-width: 3px;
-        border-color: rgb(65, 0, 88);
+        border: 2px solid rgb(65, 0, 88);
         transition: .1s;
         cursor: pointer;
+        margin-left: 86px;
+        margin-bottom:20px;
+        border-radius: 5px;
+        background-color: $background-splash;
+        padding: 15px;
+        padding-left: 40px;
+        padding-right:40px;
+        cursor: pointer;
+        font-weight: 500;
     }
 }
 
@@ -355,7 +376,7 @@ hr{
     .splash-content{
     text-align: center;
     box-sizing: inherit;
-    padding-top: 180px;
+    padding-top: 120px;
 
     .splash-content-header{
         padding-left: 250px;
@@ -434,7 +455,7 @@ hr{
     .other-button{
         font-size: 13px;
         color: rgb(177, 177, 177);
-        font-weight: 900;
+        font-weight: 500;
 
         :link{
         text-decoration: none;
@@ -470,12 +491,13 @@ hr{
         align-items: center;
         margin-bottom: 25px;
         .header-sign-form{
-            font-size: 40px;
+            font-size: 45px;
             font-weight: 900;
         }
         // padding-top: 50px;
         // padding-bottom: 50px;
 }
+
 
 .form-sign-in{
     display: flex;
@@ -483,10 +505,29 @@ hr{
     align-items: center;
     align-content: center;
 
+    .signin-errors{
+        font-size: 12px;
+        border: 1px solid red;
+        background-color: #ffb6c152;
+        position: relative;
+        top: -11px;
+        left: 10px;
+        padding: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 400px;
+        height: 40px;
+        color: #272727db;
+}
+
     input{
         height:40px;
         width: 400px;
         margin:10px;
+        
+    }
+    .input-error{
+        border: 1px solid red;
     }
 }
 
@@ -523,4 +564,3 @@ hr{
         }
     }
 }
-

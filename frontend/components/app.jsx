@@ -9,14 +9,16 @@ import Channels from './session/splash/channels'
 import Customers from './session/splash/customers';
 import Goals from './session/splash/goals';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
-
+import Modal from '../components/channel/modal'
 
  
-const App = (props) =>{
+const App = () =>{
     // think about where to route to
     return(
         <div>
+            <Modal />
+            {/* ^^ will turn this into a modal that comes up
+            after a success in channels */}
             <Switch>
                 <AuthRoute path='/signin' component={LogIn}/>
                 <AuthRoute path='/signup' component={SignUp}/>
