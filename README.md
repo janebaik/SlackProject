@@ -1,25 +1,32 @@
-# README
+# SlackMe
+SlackMe is a replication of Slack which is a platform where people can communicate with each other by using the live chat feature through channels or dms. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live site](https://slackme-aa.herokuapp.com/)
 
-Things you may want to cover:
+### Technologies
+* **Ruby on Rails** is the framework I chose for the backend development.
+* **PostgreSQL** is the database management system that is used.
+* **JavaScript/React/Redux** is used to create the frontend features
+* **HTML/CSS** is used for the designing process
 
-* Ruby version
+## Features
 
-* System dependencies
+### User Authentication
+Users are able to sign in, sign up, and logout. There is also a demo features that allow a user to sign in without creating an account and try out the features in SlackMe. 
 
-* Configuration
+**Comming Soon** 
+### Channels
+Logged in users will be able to either create a private or public channel. Channels is a place where they can communicate with other users inside that channel. The difference between a public channel and private channel is that a private channel cannot be searched and only those who are invited to that channel will be able to use that channel. 
 
-* Database creation
+#### Channel Forms
+Forms were created with the modal feature. 
+--gif comming soon
 
-* Database initialization
+### Direct Messages
+Logged in users will be able to message other users privately. Users are able to create dms with more than one person as well.
 
-* How to run the test suite
+### Messages
+Logged in users will be able to create messages that are sent in Channels or Direct Messages. Message is a unquie feature on slack. 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# SlackProject
+#### Polymorphic Table 
+In order to have a more efficient database, the message table is a polymorphic that has a relationship to channels and direct messages. 
