@@ -15,7 +15,13 @@
   left: 50%;
   transform: translate(-50%, -50%); //transformation is characterized by a two-dimensional vector. Its coordinates define how much the element moves in each direction.
 
-
+.modal-button{
+    border: none;
+    background: none;
+    color: #888888;
+    width: 35px;
+    border-radius: 5px;
+}
     .channel-form-master{
         padding:30px;
         width: 520px;
@@ -32,13 +38,6 @@
             h1{
                 font-size: 27px;
                 font-weight: 900;
-            }
-            button{
-                border: none;
-                background: none;
-                color: #888888;
-                width: 35px;
-                border-radius: 5px;
             }
 
             button:hover{
@@ -94,7 +93,8 @@
                 border-radius: 2px;
                 height:35px;
             }
-            input[type=text]:focus {
+            // input[type=text]:focus {
+            input:focus{
                 border:none;
                 border: 2px solid rgb(40, 169, 255);
                 outline: none;
@@ -156,56 +156,6 @@
                 padding-left: 114px;
             }
         }
-
-        // .toggle{
-        //     position: relative;
-        //     display: inline-block;
-
-        //     .togglebutton{
-        //         display: none;
-        //     }
-
-        //     .toggle-button-label{
-        //          display: block;
-        //         width: 48px;
-        //         height: 24px;
-        //         text-indent: -150%;
-        //         clip: rect(0 0 0 0);
-        //         color: transparent;
-        //         user-select: none;
-        //     }
-
-        //     .toggle-button-label::before,
-        //     .toggle-button-label::after{
-        //         content: "";
-        //         display: block;
-        //         position: absolute;
-        //         cursor: pointer;
-        //     }
-        //     .toggle-button-label::before{
-        //         width: 100%;
-        //         height: 100%;
-        //         position: absolute;
-        //         cursor: pointer;
-        //     }
-        //     .toggle-button-label::after{
-        //         top: 0;         
-        //         left: 0;
-        //         width: 24px;
-        //         height: 24px;
-        //         border-radius: 50%;
-        //         background-color: #fff;
-        //         box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
-        //         -webkit-transition: left 0.25s ease;
-        //         transition: left 0.25s ease;
-        //     }
-        //     .togglebutton:checked + .toggle-button-label::before{
-        //         background-color: #89c12d;
-        //     }
-        //     .togglebutton:checked + .toggle-button-label::after{
-        //         left: 24px;
-        //     }
-        // }
     }
 
     .last-channel-section{
@@ -240,31 +190,89 @@
             background: lightgray; 
             pointer-events: none; // makes it not clickable
         }
-
-        .private-button{
-            padding-left: 20px;
-            padding-right: 20px;
-            color: white; 
-            border: none;
-            font-weight: 600;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-radius: 5px;
-            background: #007a53; 
-            
-
-        }
-        .private-button:hover{
-            cursor: pointer;
-            background: #009063;
-            box-shadow: 0px 0px 5px #5c5c5ca6;
-        }
     }
+}
+
+.private-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white; 
+    border: none;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+    background: #007a53; 
+}
+.private-button:hover{
+    cursor: pointer;
+    background: #009063;
+    box-shadow: 0px 0px 5px #5c5c5ca6;
 }
 
 // user search form
 .user-search-form{
-    height: 370px;
+    height: 290px;
+    // height: 370px;
+    width: 550px;
     background-color: white;
     border-radius: 5px;
+    padding: 20px;
+}
+.user-search-header{
+    display: flex;
+    justify-content: space-between;
+
+    .add-people{
+        font-weight: bolder;
+    }
+    .name-channel{
+        padding-top: 5px;
+        color: #4e4e4ed9;
+        font-size: 12px;
+    }
+}
+.members{
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    .member-items{
+        padding-top: 10px;
+    }
+    .label{
+        padding-left: 10px;
+    }
+}
+.input-box{
+    margin-top: 20px;
+    height: 41px;
+    width: 100%;
+    font-size: 19px;
+    outline: none;
+}
+.input-box:focus{
+    border:none;
+    border: 2px solid rgb(40, 169, 255);
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(150, 213, 255);
+    border-radius: 2px;
+}
+.button-search{
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.list-names{
+    // background-color: blue;
+    // color: white;
+    position: absolute;
+    top: 175px;
+    border: 0.5px solid #838383;
+    padding: 15px;
+    z-index: 100;
+    border-radius: 4px;
+    background-color: #efefef;
+    box-shadow: 0px 0px 4px #4b4b4ba6;
+    width: 95%;
+    right: 15px;
 }

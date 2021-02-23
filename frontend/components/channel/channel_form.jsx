@@ -10,6 +10,7 @@ class ChannelForm extends React.Component{
             status_public: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleModal = this.handleModal.bind(this);
     }
 
     componentDidMount(){
@@ -17,15 +18,16 @@ class ChannelForm extends React.Component{
     }
 
     handleChange(field) {
-        debugger
+        // debugger
         return e => { this.setState({ [field]: e.currentTarget.value })}
     }
 
 
     handleSubmit(event){
         event.preventDefault();
-        this.props.createChannel(this.state).then(this.props.closeModal)
-        // check if author id is implemented in the background
+        this.props.createChannel(this.state)
+            .then(() => this.props.closeModal)
+            .then(() => this.props.openModal('Add users'));
     }
 
     handleErrors(){
@@ -37,7 +39,6 @@ class ChannelForm extends React.Component{
             }
         }
         return true
-        
     }
 
     handleToggle(event){
@@ -51,7 +52,7 @@ class ChannelForm extends React.Component{
                 <form className='channel-form-placement' onSubmit={this.handleSubmit}>
                     <div className="channel-1">
                         <h1>Create a channel</h1>
-                        <button onClick={this.props.closeModal}>X</button>
+                        <button className="modal-button" onClick={this.props.closeModal}>X</button>
                     </div>
                     <div className='content-channel'>
                         <p>Channels are where you can talk with teammates. They are the best way to talk! Best to orgainze around a topic</p>
@@ -97,7 +98,7 @@ class ChannelForm extends React.Component{
                             </img>
                             <a className="last-inner-channel-section" href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
                         </div>
-                        <button className={(this.state.name.length > 0  && this.handleErrors() ? 'private-button' : 'submitButton')} value='submit' onClick={()=> this.handleErrors}>Create</button>
+                        <button className={(this.state.name.length > 0  && this.handleErrors() ? 'private-button' : 'submitButton')} value='submit' >Create</button>
                     </div>
                 </form>
 
