@@ -3,12 +3,12 @@ import React from 'react';
 class UserSearchForm extends React.Component{
     constructor(props){
         super(props)
-         
         this.state = {
             inputVal: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        // console.log(this.props.channel)
     }
 
     componentDidMount(){
@@ -33,7 +33,7 @@ class UserSearchForm extends React.Component{
         });
 
         if (matches.length === 0) {
-            matches.push('No matches found');
+            matches.push('No matches found - Try using their email instead');
         }
 
         return matches;
@@ -54,27 +54,34 @@ class UserSearchForm extends React.Component{
         return(
             <div>
                 <form className="user-search-form" >
-                    <label htmlFor="userMember">Add People</label>
-                    <p>X</p>
-                    <p># this.props.channelname</p>
-
-
-                    <input type="radio" id='addall' value="add all"/>
-                    <label htmlFor="addall">Add all memebers of ____</label>
-                    {/* <label htmlFor="addlall">Add all members of {this.props.channel}</label> */}
-                    <input type="radio" name="" id="addspecific" value="add specific"/>
-                    <label htmlFor="addspecific">Add specific people</label>
-
-
-                    <input type="text" id='userMember' value={this.state.inputVal} onChange={this.handleChange("inputVal")} />
+                    <div className="user-search-header">
+                        <div>
+                            <label className="add-people" htmlFor="userMember">Add People</label>
+                            <p className="name-channel">#nameofchannel</p>
+                            {/* <p className="name-channel">#{this.props.channel[0].name}</p> */}
+                        </div>
+                        <button className="modal-button" onClick={this.props.closeModal}>X</button>
+                    </div>
+                    <div className="members">
+                        <div>
+                            <input type="radio" id='addall' value="add all" />
+                            <label className="label" htmlFor="addall">Add all memebers of namecjamme;</label>
+                            {/* <label className="label" htmlFor="addlall">Add all members of {this.props.channel[0].name}</label> */}
+                        </div>
+                        <div className="member-items" >
+                            <input type="radio" name="" id="addspecific" value="add specific" />
+                            <label className="label" htmlFor="addspecific">Add specific people</label>
+                        </div>
+                    </div>
+                    <input className="input-box"  type="text" id='userMember' value={this.state.inputVal} onChange={this.handleChange("inputVal")} placeholder="Enter a name or email"/>
                     
                     <ul>
-                        <li onClick={() => this.handleInsertion()}>{results}</li>
+                        <li onClick={() => this.handleInsertion()} className={(results.length > 0 ? 'list-names' : "" )} >{results}</li>
                     </ul>
-
-
-                    <button value="submit">Done</button>
-                    <button>Skip for now</button>
+                    <div className="button-search">
+                        <button className="private-button" value="submit">Done</button>
+                        {/* <button className="private-button">Skip for now</button> */}
+                    </div>
                 </form>
             </div>
         )
