@@ -13,6 +13,7 @@
 class Channel < ApplicationRecord
 
     validates :name, :author_id, presence: true
+    validates :name, uniqueness: true
     validates :author_id, length:{minimum: 1}, allow_blank: true 
 
     has_many :channel_member, dependent: :destroy
