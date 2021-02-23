@@ -2,12 +2,9 @@ class Api::ChannelsController < ApplicationController
 
     def create 
         # create a new channel
-        #  
         @channel = Channel.new(channel_params)
         @channel.author_id = current_user.id
-        #  
         if @channel.save
-            #  
             render :show
         else
             render json: ["There is an error in creating a channel"], status: 422

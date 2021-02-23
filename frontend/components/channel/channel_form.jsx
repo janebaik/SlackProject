@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class ChannelForm extends React.Component{
     constructor(props){
         super(props)
-         
         this.state = {
             name:"",
             description: "",
@@ -13,41 +12,39 @@ class ChannelForm extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
-    handleChange(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
+    componentDidMount(){
+        this.props.fetchChannels();
     }
 
-    // handleUsername(event){
-    //     this.setState({username: event.currentTarget.vale})
-    // }
+    handleChange(field) {
+        debugger
+        return e => { this.setState({ [field]: e.currentTarget.value })}
+    }
 
 
     handleSubmit(event){
         event.preventDefault();
-        //  
-        // this.handleErrors()
         this.props.createChannel(this.state).then(this.props.closeModal)
         // check if author id is implemented in the background
-        
     }
 
     handleErrors(){
-         
-        if (this.props.errors.channels.length > 0) {
-             
-            return <p>{this.props.channels.errors}</p>
+        if (this.props.channels.length > 0) {
+            const names = [];
+            const nameChannels = this.props.channels.map((channel) => names.push(channel.name))
+            if (names.includes(this.state.name)){
+                return false 
+            }
         }
+        return true
+        
     }
 
     handleToggle(event){
-        //  
         this.setState({status_public: !this.state.status_public});
-        //  
     }
 
     render(){
-        //  
         // cannot change it back to true because line 57 never gets updated
         return (
             <div className='channel-form-master'>
@@ -63,12 +60,12 @@ class ChannelForm extends React.Component{
                         <div className="channel-name-label">
                             <div className="channel-name-input">
                                 <label htmlFor="Name" >Name</label>
-                                {/* <p className="error-handleing">{this.handleErrors()}</p> */}
+                                {this.handleErrors() ? "" : <p className="channel-name-error">That name is already taken by a channel.</p>}
+                                {this.state.name !== "" ? "" : <p className="channel-name-error">Don't forget to fill to name your channel!</p>}
                             </div>
                             <div className="channel-name-symbol">
                                 <p className="symbol">#</p>
                                 <input className= "symbol-spacing"id="Name" type="text" value={this.state.name} onChange={this.handleChange("name")} />
-                                {/* <img src="" alt=""/> */}
                             </div>
                         </div>
                     </div>
@@ -100,7 +97,7 @@ class ChannelForm extends React.Component{
                             </img>
                             <a className="last-inner-channel-section" href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
                         </div>
-                        <button className={(this.state.name.length > 0 ? 'private-button' : 'submitButton')} value='submit' onClick={()=> this.handleErrors}>Create</button>
+                        <button className={(this.state.name.length > 0  && this.handleErrors() ? 'private-button' : 'submitButton')} value='submit' onClick={()=> this.handleErrors}>Create</button>
                     </div>
                 </form>
 

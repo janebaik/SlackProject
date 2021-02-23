@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { createChannel, receiveChannelErrors} from '../../actions/channel_action'
+import { createChannel, receiveChannelErrors, fetchChannels} from '../../actions/channel_action'
 import { closeModal, openModal } from '../../actions/modal_actions';
-
 import ChannelForm from './channel_form';
 
 const msp = (state, ownProps) =>{
-     
     return {
+        channels: Object.values(state.entities.channels),
         channel: {
             name:"",
             description:"",
@@ -21,6 +20,7 @@ const msp = (state, ownProps) =>{
 const mdp = (dispatch) =>{
       //what is modal (make sure its add users)
     return{
+        fetchChannels: () => dispatch(fetchChannels()),
         createChannel: (channel) => dispatch(createChannel(channel)),
         receiveChannelErrors: ((errors) => dispatch(receiveChannelErrors(errors))),
         openModal: modal => dispatch(openModal(modal)),
