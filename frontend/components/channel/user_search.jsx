@@ -25,44 +25,49 @@ class UserSearchForm extends React.Component{
 
     handleMatches(names){
         const matches = [];
+        let added = false
         if (this.state.inputVal.length === 0) {
             return matches;
         }
         names.forEach((name, index) => {
             const letters = name.slice(0,this.state.inputVal.length);
+            added = false
             if (this.state.nameItems.includes(name)){
-                matches.push(<li className="list-none">Already added this user to the channel!</li>);
+                //todo: need to return a different message for users already added 
+                added = true;
+                return 
             }
             else if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
                 matches.push(<button className="selectedname" onClick={() => this.handleInput(name)}>{name}</button>);
             }
         });
-
         if (matches.length === 0) {
             matches.push(<li className="list-none">No matches found - Try using their email instead</li>);
         }
-
         return matches;
     }
-    handleInput(name){
+    handleInput(name) {
         //make it able to delete the user from channel 
         this.state.nameItems.push(name);
         this.setState(this.state.nameItems);
         this.state.inputVal = ""
-        // this.setState({ [this.state.inputVal]: ""});
-         
-        console.log(`${this.state.nameItems}"nameItems"`);
-        console.log(`${this.state.inputVal}"input val"`);
-         
-        }
+    }
+    handleErase(name){
+        const index = this.state.nameItems.indexOf(name);
+        this.setState({[this.state.name] : this.state.nameItems.splice(index, 1)})
+    }
 
     handleSubmit(){
-         
+        this.props.addUsersChannel()
         this.props.closeModal();
     }
     render(){
         let names = this.props.users.map(a => a.username);
         const results = this.handleMatches(names);
+        const nameItems = this.state.nameItems.map(name => {
+            return <button className="input-name" type="button" >{name}<button className="input-name-earse"  type="button" onClick={() => this.handleErase(name)}>X</button></button>
+        })
+        
         return(
             <div>
                 <form className="user-search-form" >
@@ -76,18 +81,17 @@ class UserSearchForm extends React.Component{
                     </div>
                     <div className="members">
                         <div>
-                            <input type="radio" id='addall' value="add all" name="members" checked={(results.length === 0 ? "checked" : "")}   />
+                            <input type="radio" id='addall' value="add all" name="members" checked={(this.state.nameItems.length === 0 ? "checked" : "")}   />
                             <label className="label" htmlFor="addall" >Add all memebers of namechannel;</label>
                             {/* <label className="label" htmlFor="addlall">Add all members of {this.props.channel[0].name}</label> */}
                         </div>
                         <div className="member-items" >
-                            <input type="radio" id="addspecific" value="add specific" name="members" checked={(results.length > 0 ? "checked" : "")}  /> 
+                            <input type="radio" id="addspecific" value="add specific" name="members" checked={(this.state.nameItems.length > 0 ? "checked" : "")}  /> 
                             <label className="label" htmlFor="addspecific" >Add specific people (try jane)</label>
                         </div>
                     </div>
                     <input className="input-box"  type="text" id='userMember' value={this.state.inputVal} onChange={this.handleChange("inputVal")} placeholder="Enter a name or email"/>
-                    <p>{this.state.nameItems}</p>
-                    <p>hello</p>
+                    <div >{nameItems}</div>
                     <ul>
                         <li className={(results.length > 0 ? 'list-names' : "" )} >{results}</li>
                     </ul>
@@ -102,3 +106,4 @@ class UserSearchForm extends React.Component{
 }
 
 export default UserSearchForm;
+
