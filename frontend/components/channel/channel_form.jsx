@@ -18,7 +18,7 @@ class ChannelForm extends React.Component{
     }
 
     handleChange(field) {
-        // debugger
+        //  
         return e => { this.setState({ [field]: e.currentTarget.value })}
     }
 
@@ -52,10 +52,10 @@ class ChannelForm extends React.Component{
                 <form className='channel-form-placement' onSubmit={this.handleSubmit}>
                     <div className="channel-1">
                         <h1>Create a channel</h1>
-                        <button className="modal-button" onClick={this.props.closeModal}>X</button>
+                        <button type="button" className="modal-button" onClick={() => this.props.closeModal()}>X</button>
                     </div>
                     <div className='content-channel'>
-                        <p>Channels are where you can talk with teammates. They are the best way to talk! Best to orgainze around a topic</p>
+                        <p>Channels are where you can talk with teammates. They are the best way to talk! Best to organize around a topic</p>
                     </div>
                     <div>
                         <div className="channel-name-label">
@@ -66,7 +66,7 @@ class ChannelForm extends React.Component{
                             </div>
                             <div className="channel-name-symbol">
                                 <p className="symbol">#</p>
-                                <input className= "symbol-spacing"id="Name" type="text" value={this.state.name} onChange={this.handleChange("name")} />
+                                <input className="symbol-spacing" id="Name" type="text" value={this.state.name} onChange={this.handleChange("name")} />
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ class ChannelForm extends React.Component{
                             </img>
                             <a className="last-inner-channel-section" href="https://www.linkedin.com/in/jane-baik-963b59195/" target="_blank">My LinkedIn</a>
                         </div>
-                        <button className={(this.state.name.length > 0  && this.handleErrors() ? 'private-button' : 'submitButton')} value='submit' >Create</button>
+                        <button className={(this.state.name.length > 0  && this.handleErrors() ? 'private-button' : 'submitButton')} value='submit'>Create</button>
                     </div>
                 </form>
 
