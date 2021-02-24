@@ -15,6 +15,7 @@ const msp = (state, ownProps) =>{
 const mdp = (dispatch) =>{
      
     return{
+        addUserChannel: (id) => dispatch(addUserChannel(id)),
         fetchUsers: () => dispatch(fetchAllUsers()),
         closeModal: () => dispatch(closeModal())
     }

@@ -299,3 +299,34 @@
     padding-bottom: 5px;
     padding-left: 20px;
 }
+
+.input-name{
+    outline: none;
+    border: none;
+    background-color: rgb(168, 203, 235);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 3px;
+    border-radius: 2px;
+}
+
+.input-name:hover{
+    outline: none;
+    transition: .5s;
+    box-shadow: 0px 0px 5px #9ad1ffa6;
+}
+.input-name-earse{
+    outline: none;
+    border: none;
+    background-color: rgb(168, 203, 235);
+    padding:2px;
+    margin-left: 5px;
+}
+.input-name-earse:hover{
+    outline: none;
+    border: none;
+    background-color: rgb(172, 181, 189);
+    cursor: pointer;
+}
