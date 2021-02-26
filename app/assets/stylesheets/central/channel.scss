@@ -330,3 +330,236 @@
     background-color: rgb(172, 181, 189);
     cursor: pointer;
 }
+.channel-nav-master{
+    background-color: #541355;
+    color: whitesmoke;
+    width:200px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+    p{
+        padding: 5px;
+    }
+}
+.channel-nav-header{
+    padding: 5px;
+    margin-left: 15px;
+}
+.add-channel{
+    margin-right: 5px;
+    background-color: $purple-splash;
+    border:none;
+    outline: none;
+    color: rgb(219, 219, 219);
+    font-size: 20px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px
+}
+.add-channel:hover{
+    cursor: pointer;
+    background-color: rgba(184, 184, 184, 0.438);
+    
+}
+.channels{
+    background-color: $purple-splash;
+    width: 200px;
+}
+.channel-items{
+    padding: 5px 14px;
+    display: flex;
+    font-size: 15px;
+    margin: 3px;
+    width: 197px;
+    background-color: $purple-splash;
+    color: whitesmoke;
+    .hashtag{
+        padding-right: 15px;
+    }
+}
+
+.channel-items:hover{
+    cursor: pointer;
+    background-color: #490f4a;
+    border-radius: 5px;
+}
+.channel-items-items{
+    cursor: pointer;
+    background-color: #490f4a;
+    border-radius: 5px;
+}
+.add-last-channel{
+    margin-right: 5px;
+    background-color: rgba(184, 184, 184, 0.438);
+    border:none;
+    outline: none;
+    color: rgb(219, 219, 219);
+    font-size: 20px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px
+}
+.add-last-channel:hover{
+    cursor: pointer;
+}
+.channel-master-layout{
+    display: flex;
+}
+.channel-header{
+    display: flex;
+    height: 50px;
+    // background-color: red;
+}
+
+.channel-item-header{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    width: 1030px;
+    margin-left: 5px;
+    .topic{
+        width: 200px;
+        font-weight: normal;
+        font-size: 13px;
+        color: rgb(78, 78, 78);
+        padding-top: 10px;
+    }
+    .topic:hover{
+        cursor: pointer;
+        color: $blue-text-highlight;
+    }
+    .button{
+        outline: none;
+    }
+}
+.channel-icon-header{
+    display: flex;
+}
+.icon-channel{
+    height: 35px;
+    margin-left: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgba(92, 92, 92, 0.226);
+}
+
+
+.tooltip .tooltiptext{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px 0px;
+    position: absolute;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 32%;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+.tooltip:hover .tooltiptext{
+    visibility: visible;
+}
+
+.detail-header{
+    display: flex;
+}
+.icon{
+    display: flex;
+    flex-direction: column;
+}
+.detail{
+    width: 100%;
+}
+
+// View (Search) members
+.search{
+    padding-top: 18px;
+    color: #3d84e2;
+    cursor: pointer;
+    width: 17%;
+    font-weight: bolder;
+    font-size: 15px;
+}
+.search:hover{
+    text-decoration: underline;
+    color: $blue-splash;
+}
+.item{
+    padding-top: 10px;
+}
+.item-name{
+    margin-top: 10px;
+    font-weight: bolder;
+    padding: 5px 0px;
+}
+.item-name:hover{
+    cursor: pointer;
+    background-color: #c1c1c161;
+    border-radius: 5px;
+}
+.error-search{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.center-clearout{
+    display: flex;
+    justify-content: center;
+}
+.clearout{
+    padding: 10px;
+    background: transparent;
+    outline: none;
+    border: 1px solid #ababab;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.clearout:hover{
+    background: #8080801a;
+}
+.nameItems{
+    position: relative;
+    top: -230px;
+    left: 250px;
+    z-index: 99;
+    width: 80%;
+    height: 300px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.name-button-modal{
+    width: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+}
+.name-button-modal:hover{
+    text-decoration: underline;
+}
+.img-button-modal{
+    height: 50%;
+    width: 100%;
+    background: red;
+    position: relative;
+    top: -41px;
+    border-radius: 2px;
+}
+.img-button-modal:hover{
+    cursor: pointer;
+}

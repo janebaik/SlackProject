@@ -1,6 +1,4 @@
 export const getChannels = () => {
-    // index
-    //  
     return (
         $.ajax({
             method: "GET",
@@ -22,7 +20,6 @@ export const getChannel = (channelId) => {
 // ^^ the both get channels 
 
 export const createChannel = (channel) => {
-    //  
     return(
         $.ajax({
             method:"POST",
@@ -60,3 +57,15 @@ export const getMembersChannel = (channel) =>{
     )
 }
 
+export const addUserChannel = (userChannel) => {
+    // not sure if you are suppose to put userId here 
+    debugger
+    return (
+        $.ajax({
+            method: "POST",
+            url: `/api/channelmembers`,
+            data: {channel_members: userChannel}
+        })
+    )
+
+}

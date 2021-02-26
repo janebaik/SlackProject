@@ -7,18 +7,19 @@ class ChannelForm extends React.Component{
         this.state = {
             name:"",
             description: "",
+            topic: "",
             status_public: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         // this.handleModal = this.handleModal.bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchChannels();
-    }
+    // componentDidMount(){
+    //     debugger
+    //     this.props.fetchChannels();
+    // }
 
     handleChange(field) {
-        //  
         return e => { this.setState({ [field]: e.currentTarget.value })}
     }
 
@@ -27,6 +28,7 @@ class ChannelForm extends React.Component{
         event.preventDefault();
         this.props.createChannel(this.state)
             .then(() => this.props.closeModal)
+            .then(() => this.props.fetchChannels())
             .then(() => this.props.openModal('Add users'));
     }
 
