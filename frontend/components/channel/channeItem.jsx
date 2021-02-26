@@ -18,7 +18,6 @@ class ChannelItem extends React.Component {
         this.setState([])
         this.props.fetchChannel(this.props.channelId)
         this.props.openModal('Add users')
-        this.props.fetchChannels()
     }
     viewMembers() {
         debugger

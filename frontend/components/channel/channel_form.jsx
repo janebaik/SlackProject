@@ -28,7 +28,6 @@ class ChannelForm extends React.Component{
         event.preventDefault();
         this.props.createChannel(this.state)
             .then(() => this.props.closeModal)
-            .then(() => this.props.fetchChannels())
             .then(() => this.props.openModal('Add users'));
     }
 
