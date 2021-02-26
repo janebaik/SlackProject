@@ -19,12 +19,11 @@ class ApplicationController < ActionController::Base
     end
 
     def loggedin?
-        #  
         !!current_user
     end
 
     def current_channels
-        @channel ||= Channel.all
+       Channel.all
     end
 
 end

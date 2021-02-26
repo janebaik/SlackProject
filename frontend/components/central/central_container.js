@@ -7,7 +7,6 @@ import {openModal} from '../../actions/modal_actions';
 
 // when a user is signed in 
 const msp = (state, ownProps) =>{
-    //  
     return {
         user: state.entities.users[state.session.id]
     }

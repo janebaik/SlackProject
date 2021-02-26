@@ -9,11 +9,8 @@ const usersReducer = (oldState = {}, action) => {
     const nextState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            //  
-            // look below if you forget what this means
             return action.user
         case RECEIVE_ALL_USERS:
-            //  
             return action.users
         default:
             return oldState;

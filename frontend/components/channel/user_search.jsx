@@ -14,6 +14,7 @@ class UserSearchForm extends React.Component{
 
     componentDidMount(){
         this.props.fetchUsers();
+        
     }
 
     handleChange(field) {
@@ -58,7 +59,23 @@ class UserSearchForm extends React.Component{
     }
 
     handleSubmit(){
-        this.props.addUsersChannel()
+        if (this.state.nameItems.length === 0){
+            //adding all users 
+            this.props.users.map(name => {
+                this.props.addUserChannel({ user_id: name.id, channel_id: this.props.channel[0].id})
+            })
+        } else {
+            //adding selected users
+            let index = 0;
+            let userItem;
+            this.state.nameItems.map(name => {
+                index = this.state.nameItems.indexOf(name)
+                userItem = this.props.users[index];
+                // got the user items
+                this.props.addUserChannel({ user_id: userItem.id, channel_id: this.props.channel[0].id })
+
+            })
+        }
         this.props.closeModal();
     }
     render(){
@@ -74,16 +91,16 @@ class UserSearchForm extends React.Component{
                     <div className="user-search-header">
                         <div>
                             <label className="add-people" htmlFor="userMember">Add People</label>
-                            <p className="name-channel">#nameofchannel</p>
-                            {/* <p className="name-channel">#{this.props.channel[0].name}</p> */}
+                            {/* <p className="name-channel">#nameofchannel</p> */}
+                            <p className="name-channel">#{this.props.channel[0].name}</p>
                         </div>
                         <button type="button" className="modal-button" onClick={() => this.props.closeModal()}>X</button>
                     </div>
                     <div className="members">
                         <div>
                             <input type="radio" id='addall' value="add all" name="members" checked={(this.state.nameItems.length === 0 ? "checked" : "")}   />
-                            <label className="label" htmlFor="addall" >Add all memebers of namechannel;</label>
-                            {/* <label className="label" htmlFor="addlall">Add all members of {this.props.channel[0].name}</label> */}
+                            {/* <label className="label" htmlFor="addall" >Add all memebers of namechannel;</label> */}
+                            <label className="label" htmlFor="addlall">Add all members of {this.props.channel[0].name}</label>
                         </div>
                         <div className="member-items" >
                             <input type="radio" id="addspecific" value="add specific" name="members" checked={(this.state.nameItems.length > 0 ? "checked" : "")}  /> 

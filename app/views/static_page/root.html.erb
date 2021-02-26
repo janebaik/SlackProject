@@ -5,8 +5,11 @@
       user: current_user 
     ).html_safe%>
   </script>
-  <script>
-
-    </script>
+  <script type="text/javascript">
+    window.channels = <%=render(
+      "api/channels/channels.json.jbuilder",
+      channel: current_channels
+    ).html_safe%>
+  </script>
 <% end %>
 <main id="root">Broken React</main>

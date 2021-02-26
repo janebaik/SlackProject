@@ -7,8 +7,6 @@ import Channel from '../channel/channel_container';
 class Central extends React.Component{
     constructor(props){
         super(props)
-        
-        //  
     }
 
     logoutUser(){
@@ -22,6 +20,8 @@ class Central extends React.Component{
         // }
     }
 
+    
+
     openModal(modal){
         this.props.openModal(modal)
     }
@@ -29,21 +29,22 @@ class Central extends React.Component{
     render(){
         return(
             <div>
-                <div>
+                <div className="channel-nav-master">
                     <nav className='channel-list-dropdown'>
-                        Channels
-                        <Channel /> 
-                        {/* ^^ its the side bars */}
+                        <p className="channel-nav-header">Channels</p>
                     </nav>
-                    <button onClick={() => this.openModal('Create a Channel')}>Create a channel</button>
-                    <button onClick={() => this.openModal('Add users')}>Add users</button>
-
+                    <button className="add-channel" onClick={() => this.openModal('Create a Channel')}>+</button>
                 </div>
+                <div className="channels">
+                    <Channel />
+                </div>
+                <div className="channel-nav-master" onClick={() => this.openModal('Create a Channel')}>
+                    <button className="add-last-channel">+</button>
+                    <p>Add channels</p>
+                </div>
+                <button className="header-button" onClick={() => this.logoutUser()}>Log Out</button>
 
-
-                <button className="header-button" onClick={()=>this.logoutUser()}>Log Out</button>
             </div>
-            
         )
     }
 }

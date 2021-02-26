@@ -58,13 +58,13 @@ export const fetchChannel = (channelId) => (dispatch) =>{
 
 
 export const createChannel = (channel) => (dispatch) =>{
-    //  
     return ChannelApiUtil.createChannel(channel)
         .then((channel) => dispatch(receiveSingleChannel(channel)),
             (errors) => dispatch(receiveChannelErrors(errors.responseJSON)))
 }
 
 export const updateChannel = (channel) => (dispatch) => {
+    debugger
     return ChannelApiUtil.updateChannel(channel)
         .then((channel) => dispatch(receiveSingleChannel(channel)),
         (errors) => dispatch(receiveChannelErrors(errors.responseJSON)))
@@ -82,3 +82,12 @@ export const deleteChannel = (channelId) => (dispatch) => {
             errors => dispatch(receiveChannelErrors(errors.responseJSON)))
 }
 
+export const addUserChannel = (userChannel) => (dispatch) => {
+    debugger
+    return ChannelApiUtil.addUserChannel(userChannel)
+        // .then(() => {
+        //     //didnt write reducer for this.
+        //     // will probably need to write reducers for it maybe?
+        //     return 
+        // })
+}

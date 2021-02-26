@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // persist user
         const preloadedState = {
             session: { id: window.currentUser.id  },
-            // entities: {
+            entities: {
                 // users: { [window.user.id]: window.users },
-            //     // channels: { [window.currentChannel]: window.currentChannel }
-            //     // if you want this to persist then go to root.html.erb
-            // }, 
+                // if you want this to persist then go to root.html.erb
+            }, 
+            // channels: window.channels,
             errors: {
                 session: [window.currentUser.errors]
             }

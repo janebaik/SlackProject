@@ -10,6 +10,7 @@ import Customers from './session/splash/customers';
 import Goals from './session/splash/goals';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from '../components/channel/modal'
+import channelItem_container from './channel/channelItem_container';
 
  
 const App = () =>{
@@ -23,8 +24,10 @@ const App = () =>{
                 <AuthRoute path='/signin' component={LogIn}/>
                 <AuthRoute path='/signup' component={SignUp}/>
                 <ProtectedRoute path="/slack-me" component={Central} />
-
-                <Route exact path="/" component={Splash}/>
+                <Route exact path="/" component={Splash} />
+                
+                {/* editing a post */}
+                <ProtectedRoute path="/api/channels/:id/edit" component={channelItem_container}/>
 
                 {/* nav-drop-down items (not sure if i need these but for placement I placed it here) */}
                 <Route exact path='/features' component={Features}/>
