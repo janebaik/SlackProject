@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :channels, only: [:index, :create, :show, :destroy, :edit, :update] do
     resources :users, only: [:index]
   end
-  resources :channelmembers, only:[:create]
+  resources :channelmembers, only:[:create, :show]
 
   resource :session, only: [:create, :destroy]
   end

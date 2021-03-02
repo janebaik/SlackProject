@@ -16,9 +16,11 @@ class Channel extends React.Component{
 
     componentDidMount(){
         this.props.fetchChannels();
+        debugger
     }
-
+    
     handleChannel(id, name, topic){
+        this.props.fetchChannel(id)
         this.setState({ ["component"]: <ChannelItem channelId={id} name={name} topic={topic}/>})
         // changing the background color to purple
         this.props.channels.map((channel) => {
@@ -28,17 +30,22 @@ class Channel extends React.Component{
         document.getElementById(id).style.backgroundColor = "rgb(61, 132, 226)"
     }
     render(){
-        debugger
         const channels = this.props.channels.map((channel) => {
             return <span id={channel.id} key={channel.id} className= "channel-items" onClick={() => this.handleChannel(channel.id, channel.name, channel.topic)}>{channel.status_public ? "#" : <li className="fa">&#xf023;</li>}<li className="hashtag" ></li>{channel.name}</span>
         })
+        // const channels =  this.props.channels.map((channel) => {
+        //     debugger
+        //     // this.props.fetchChannelMembers(channel.id)
+        // })
         
         return(
             <div className="channel-master-layout">
                 <ul>
                     {channels}
                 </ul>
-                {this.state.component}
+                <div>
+                    {this.state.component}
+                </div>
             </div>
         )
     }

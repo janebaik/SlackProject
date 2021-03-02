@@ -2,16 +2,18 @@ import{connect} from 'react-redux';
 import UserSearchForm from './user_search'
 import { closeModal } from '../../actions/modal_actions';
 import { fetchAllUsers } from '../../actions/session_actions';
-import { addUserChannel } from "../../actions/channel_action";
+import { addUserChannel, fetchChannelMembers, fetchChannels } from "../../actions/channel_action";
 // actions
 
 const msp = (state, ownProps) =>{
-    debugger
+     debugger
     return{
-        channel: Object.values(state.entities.channels),
+        channels: Object.values(state.entities.channels),
         inputVal: "",
         users: Object.values(state.entities.users),
-        channelItem: []
+        channelItem: Object.values(state.channel),
+        currentUser: state.session.id,
+        channelMembers: Object.values(state.channelMembers)    
     }
 }
 const mdp = (dispatch) =>{
@@ -19,7 +21,10 @@ const mdp = (dispatch) =>{
     return{
         addUserChannel: (id) => dispatch(addUserChannel(id)),
         fetchUsers: () => dispatch(fetchAllUsers()),
-        closeModal: () => dispatch(closeModal())
+        fetchChannelMembers: (id) => dispatch(fetchChannelMembers(id)),
+        closeModal: () => dispatch(closeModal()),
+        fetchChannels: () => dispatch(fetchChannels()),
+
     }
 }
 

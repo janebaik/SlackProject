@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import ChannelForm from '../channel/channel_form_container';
 import UserSearchForm from "../channel/user_search_container";
 import FetchUser from "../channel/fetch_user_container";
+import ChannelUpdateForm from "../channel/channel_update_container";
 
 function Modal({modal, closeModal}) {
     //  
@@ -19,11 +20,14 @@ function Modal({modal, closeModal}) {
             component = <ChannelForm/>;
             break
         case "Add users":
-            debugger
+             
             component = <UserSearchForm/>
             break
         case "Fetch users":
             component = <FetchUser />
+            break
+        case "Change topic":
+            component = <ChannelUpdateForm/>
             break
         default:
             return null;
@@ -39,7 +43,7 @@ function Modal({modal, closeModal}) {
 }
 
 const msp = (state, ownProps) => {
-    debugger
+     
     return {
         modal: state.ui.modal
     };

@@ -12,7 +12,9 @@ class FetchUser extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers();
+        // fetch users using this.props.fetchChannelMembers(this.props.channelItem[0].id)
+        this.props.fetchUsers()
+        this.props.fetchChannelMembers(this.props.channelItem[0].id)
     }
 
     handleSearch(){
@@ -39,17 +41,27 @@ class FetchUser extends React.Component {
     clearNameItems(){
         this.setState({ ["nameItems"]: "" })
     }
-    handleMatches(names) {
-        const matches = []
-        const matched = []
-        this.props.users.map((user) => {
-            matches.push(<p onClick={() => this.handleInput(user.username, user.id)} className="item-name">{user.username}</p>)
-        })
+    handleMatches() {
         debugger
+        let names = [];
+        const matches = [];
+        const matched = [];
+        this.props.channelMembers.map((user) => {
+            debugger
+            this.props.users.map((userName) => {
+                if (userName.id === user.user_id){
+                    names.push(userName.username);
+                    matches.push(<p onClick={() => this.handleInput(userName.username, user.id)} className="item-name">{userName.username}</p>)
+                }
+            })
+        })
+        
         if (this.state.inputVal.length === 0) {
             return matches;
         }
-        names.forEach((name, index) => {
+        console.log(matched)
+        debugger
+        names.map((name) => {
             const letters = name.slice(0, this.state.inputVal.length);
             if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
                 matched.push(<p onClick={() => this.handleInput(name)} className="item-name">{name}</p>);
@@ -64,14 +76,14 @@ class FetchUser extends React.Component {
     
 
     render() {
-        let names = this.props.users.map(a => a.username);
-        const results = this.handleMatches(names);
+        // let names = this.props.users.map(a => a.username);
+        const results = this.handleMatches();
         return (
             <div>
                 <form className="user-search-form" >
                     <div className="user-search-header">
                         <div>
-                            <label className="add-people" htmlFor="userMember">{this.props.users.length} Members in #{this.props.channel[0].name}</label>
+                            <label className="add-people" htmlFor="userMember">{this.props.channelMembers.length} Members in #{this.props.channelItem[0].name}</label>
                         </div>
                         <button type="button" className="modal-button" onClick={() => this.props.closeModal()}>X</button>
                     </div>

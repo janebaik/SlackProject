@@ -1,28 +1,28 @@
 import { connect } from 'react-redux';
-import { createChannel, receiveChannelErrors, fetchChannels, addUserChannel} from '../../actions/channel_action'
+import { createChannel, receiveChannelErrors, fetchChannels, addUserChannel } from '../../actions/channel_action'
 import { closeModal, openModal } from '../../actions/modal_actions';
-import ChannelForm from './channel_form';
+import ChannelUpdateForm from './channel_update';
 
-const msp = (state, ownProps) =>{
+const msp = (state, ownProps) => {
     debugger
     return {
         currentUser: state.session.id,
         currentChannel: Object.values(state.channel),
         channels: Object.values(state.entities.channels),
         channel: {
-            name:"",
-            description:"",
+            name: "",
+            description: "",
             status_public: true
         },
-        errors:{
-            channels:[]
+        errors: {
+            channels: []
         },
         formType: "Create a Channel"
     }
 }
-const mdp = (dispatch) =>{
-      //what is modal (make sure its add users)
-    return{
+const mdp = (dispatch) => {
+    //what is modal (make sure its add users)
+    return {
         addUserChannel: (ids) => dispatch(addUserChannel(ids)),
         fetchChannels: () => dispatch(fetchChannels()),
         createChannel: (channel) => dispatch(createChannel(channel)),
@@ -32,4 +32,4 @@ const mdp = (dispatch) =>{
     }
 }
 
-export default connect(msp, mdp)(ChannelForm)
+export default connect(msp, mdp)(ChannelUpdateForm)

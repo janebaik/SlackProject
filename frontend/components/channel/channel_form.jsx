@@ -14,10 +14,10 @@ class ChannelForm extends React.Component{
         // this.handleModal = this.handleModal.bind(this);
     }
 
-    // componentDidMount(){
-    //     debugger
-    //     this.props.fetchChannels();
-    // }
+    componentDidMount(){
+        this.props.fetchChannels();
+        
+    }
 
     handleChange(field) {
         return e => { this.setState({ [field]: e.currentTarget.value })}
@@ -26,9 +26,10 @@ class ChannelForm extends React.Component{
 
     handleSubmit(event){
         event.preventDefault();
+        debugger
         this.props.createChannel(this.state)
+            .then(() => this.props.addUserChannel({ user_id: this.props.currentUser, channel_id: this.props.currentChannel[0].id}))
             .then(() => this.props.closeModal)
-            .then(() => this.props.fetchChannels())
             .then(() => this.props.openModal('Add users'));
     }
 

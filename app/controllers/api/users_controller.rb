@@ -15,8 +15,7 @@ class Api::UsersController < ApplicationController
     def index
         # display all the users 
         @users = User.all
-        #  
-        # render json: @users
+         
         render :index
     end
 
