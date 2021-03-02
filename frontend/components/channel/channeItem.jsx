@@ -3,36 +3,33 @@ import { updateChannel } from '../../util/channel_api_util';
 
 
 class ChannelItem extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        debugger
+
     }
 
-    // componentDidMount(){
-    //     debugger
-    //     this.props.fetchChannel(this.props.channelId)
-    // }
-
-    handleAddUser(){
+    componentDidMount() {
         debugger
-        this.setState([])
+        this.props.fetchChannel(this.props.channelId)
+    }
+
+    handleAddUser() {
         this.props.fetchChannel(this.props.channelId)
         this.props.openModal('Add users')
     }
     viewMembers() {
-        debugger
         this.props.fetchChannel(this.props.channelId)
         this.props.openModal('Fetch users')
     }
 
-    updateChannelInfo(){
+    updateChannelInfo() {
         //channels controller line 27
-        debugger
-        this.props.updateChannel(this.props.channel)
-        debugger
+        this.props.fetchChannel(this.props.channelId)
+        this.props.openModal('Change topic')
+        //TODO
     }
-    render(){
-        debugger
+    render() {
+
         return (
             <div>
                 <div className="channel-header">
@@ -49,13 +46,12 @@ class ChannelItem extends React.Component {
                             <img onClick={() => this.handleAddUser()} className="icon-channel" src={window.addMemberIcon} alt="member-add-icon" />
                             <div className="tooltiptext">Add Members</div>
                         </div>
-                        <div className="tooltip">
+                        <div className="tooltip-last">
                             <img className="icon-channel" src={window.infoicon} alt="info-icon" />
-                            <div className="tooltiptext">Channel Info</div>
+                            <div className="tooltiptext-last">Channel Info</div>
                         </div>
                     </div>
                 </div>
-                <hr />
                 {/* description
                 <div className="detail">
                     <div className="detail-header">
@@ -82,7 +78,7 @@ class ChannelItem extends React.Component {
             </div>
         )
     }
-    
+
 }
 
 export default ChannelItem;

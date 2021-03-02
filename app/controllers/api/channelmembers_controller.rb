@@ -8,6 +8,12 @@ class Api::ChannelmembersController < ApplicationController
             render json: ["There was something wrong in adding users to channel"], status: 422
         end
     end
+    
+    def show
+        channel = Channel.find(params[:id]).id
+        @channelmembers = ChannelMember.where(:channel_id => channel)
+        render :index
+    end
 
     def channel_members_params
         #not going to pass in author id

@@ -4,9 +4,9 @@ import ChannelItem from "./channeItem";
 import { fetchChannel, updateChannel, deleteChannel, fetchChannels } from '../../actions/channel_action';
 
 const msp = (state, ownProps) => {
-    debugger
+     debugger
     return {
-        // channel: state.entities.channels
+        // channel: state.channel
     }
 }
 const mdp = (dispatch) => {

@@ -9,41 +9,69 @@ class UserSearchForm extends React.Component{
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // console.log(this.props.channel)
+         
+        console.log(this.props.channelMembers)
     }
 
     componentDidMount(){
         this.props.fetchUsers();
-        
+        this.props.fetchChannelMembers()
+        this.props.fetchChannelMembers(this.props.channelItem[0].id);
+        this.props.fetchChannels();
     }
 
+
     handleChange(field) {
-         
         return event => {
             event.preventDefault();
             this.setState({ [field]:event.currentTarget.value })};
     }
 
-    handleMatches(names){
+    handleMatches(names, namesIds){
+        debugger
         const matches = [];
-        let added = false
+        const previouslyAdded = [];
         if (this.state.inputVal.length === 0) {
             return matches;
         }
-        names.forEach((name, index) => {
-            const letters = name.slice(0,this.state.inputVal.length);
-            added = false
-            if (this.state.nameItems.includes(name)){
+        console.log(namesIds) //TODO You can use namesIds to compare the this.channelMembers get the name and compare it to the nameItems or matches which ever
+        debugger
+        namesIds.map((userArray) => {
+            let id = userArray[1]
+            let name = userArray[0]
+            this.props.channelMembers.map((userPrevious) => {
+                if (id === userPrevious.user_id){
+                    previouslyAdded.push(name)
+                }
+            })
+        })
+        let count = 0;
+        const letter = this.state.inputVal;
+        debugger
+        while (previouslyAdded.length > count) {
+            const letters = previouslyAdded[count].slice(0, this.state.inputVal.length);
+            if (letters.toLowerCase() === letter.toLowerCase()) {
                 //todo: need to return a different message for users already added 
-                added = true;
-                return 
+                debugger
+                matches.push(<button className="selectedname">You already added this user!</button>);
+
             }
-            else if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
-                matches.push(<button className="selectedname" onClick={() => this.handleInput(name)}>{name}</button>);
+            count += 1;
+        }
+        debugger
+        if (matches.length === 0){
+            names.forEach((name) => {
+                const letters = name.slice(0, this.state.inputVal.length);
+                debugger
+                if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
+                    debugger
+                    matches.push(<button className="selectedname" onClick={() => this.handleInput(name)}>{name}</button>);
+                }
+            });
+            debugger
+            if (matches.length === 0) {
+                matches.push(<li className="list-none">No matches found - Try using their email instead</li>);
             }
-        });
-        if (matches.length === 0) {
-            matches.push(<li className="list-none">No matches found - Try using their email instead</li>);
         }
         return matches;
     }
@@ -58,32 +86,54 @@ class UserSearchForm extends React.Component{
         this.setState({[this.state.name] : this.state.nameItems.splice(index, 1)})
     }
 
-    handleSubmit(){
-        if (this.state.nameItems.length === 0){
-            //adding all users 
+    handleSubmit(boolean){
+        if (boolean){
+            debugger
+            const userId = []
+            this.props.channelMembers.map((user) => {
+                userId.push(user.user_id)
+            })
+            console.log(userId)
             this.props.users.map(name => {
-                this.props.addUserChannel({ user_id: name.id, channel_id: this.props.channel[0].id})
+                debugger
+                if (!userId.includes(name.id) && this.props.currentUser !== name.id){
+                    debugger
+                    this.props.addUserChannel({ user_id: name.id, channel_id: this.props.channelItem[0].id })
+                }
             })
+            debugger
         } else {
-            //adding selected users
-            let index = 0;
-            let userItem;
-            this.state.nameItems.map(name => {
-                index = this.state.nameItems.indexOf(name)
-                userItem = this.props.users[index];
-                // got the user items
-                this.props.addUserChannel({ user_id: userItem.id, channel_id: this.props.channel[0].id })
+            debugger
+                // this.props.addUserChannel({ user_id: this.props.currentUser, channel_id: this.props.channelItem[0].id })
+            let count = 0;
+            while (this.state.nameItems.length > count) {
+                let inputname = this.state.nameItems[count]
 
-            })
+                this.props.users.map((name) => {
+
+                    if (name.username === inputname) {
+
+                        this.props.addUserChannel({ user_id: name.id, channel_id: this.props.channelItem[0].id })
+                    }
+                })
+                count += 1;
+            }
         }
         this.props.closeModal();
     }
     render(){
+        let namesIds = []
+        this.props.users.map(a => {
+            namesIds.push([a.username, a.id])
+        });
         let names = this.props.users.map(a => a.username);
-        const results = this.handleMatches(names);
-        const nameItems = this.state.nameItems.map(name => {
-            return <button className="input-name" type="button" >{name}<button className="input-name-earse"  type="button" onClick={() => this.handleErase(name)}>X</button></button>
-        })
+        const results = this.handleMatches(names, namesIds);
+        let nameItems;
+        if (this.state.nameItems.length > 0) {
+            nameItems = this.state.nameItems.map(name => {
+                return <button className="input-name" type="button" >{name}<p className="input-name-earse" type="button" onClick={() => this.handleErase(name)}>X</p></button>
+            })
+        }
         
         return(
             <div>
@@ -92,28 +142,30 @@ class UserSearchForm extends React.Component{
                         <div>
                             <label className="add-people" htmlFor="userMember">Add People</label>
                             {/* <p className="name-channel">#nameofchannel</p> */}
-                            <p className="name-channel">#{this.props.channel[0].name}</p>
+                            <p className="name-channel">#{this.props.channelItem[0].name}</p>
                         </div>
                         <button type="button" className="modal-button" onClick={() => this.props.closeModal()}>X</button>
                     </div>
-                    <div className="members">
+                    <button className="private-button" onClick={() => this.handleSubmit(true)}>Add all members of {this.props.channelItem[0].name}</button>
+
+                    {/* <div className="members">
                         <div>
-                            <input type="radio" id='addall' value="add all" name="members" checked={(this.state.nameItems.length === 0 ? "checked" : "")}   />
-                            {/* <label className="label" htmlFor="addall" >Add all memebers of namechannel;</label> */}
-                            <label className="label" htmlFor="addlall">Add all members of {this.props.channel[0].name}</label>
+                            <input type="checkbox" id='addall' value="add all" name="members"/>
+                            <label className="label" htmlFor="addall" >Add all memebers of namechannel;</label>
+                            <label className="label" htmlFor="addlall">Add all members of {this.props.channelItem[0].name}</label>
                         </div>
                         <div className="member-items" >
-                            <input type="radio" id="addspecific" value="add specific" name="members" checked={(this.state.nameItems.length > 0 ? "checked" : "")}  /> 
-                            <label className="label" htmlFor="addspecific" >Add specific people (try jane)</label>
+                            <input type="radio" id="addspecific" value="add specific" name="members" checked={this.state.inputVal.length !== 0 ? "checked" : ""} /> 
                         </div>
-                    </div>
+                    </div> */}
+                    <p htmlFor="addspecific">You can add specific people down below! (try jane)</p>
                     <input className="input-box"  type="text" id='userMember' value={this.state.inputVal} onChange={this.handleChange("inputVal")} placeholder="Enter a name or email"/>
-                    <div >{nameItems}</div>
+                    <div className="input-master">{nameItems}</div>
                     <ul>
-                        <li className={(results.length > 0 ? 'list-names' : "" )} >{results}</li>
+                        <p className={(results.length > 0 ? 'list-names' : "" )} >{results}</p>
                     </ul>
                     <div className="button-search">
-                        <button type="button" className="private-button" onClick={() => this.handleSubmit()}>Done</button>
+                        <button type="button" className={this.state.nameItems.length === 0 && this.state.inputVal.length === 0 ? "submitButton" : "private-button"} onClick={() => this.handleSubmit(false)}>Done</button>
                         {/* <button className="private-button">Skip for now</button> */}
                     </div>
                 </form>

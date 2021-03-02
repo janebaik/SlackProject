@@ -16,4 +16,4 @@ author_1 = User.create!({id: 1, username:"wassap", email:"janefneiaiwefn", passw
 
 
 general_1 = Channel.create!({name:"General", status_public: true, author_id: 1, topic:"This is the general channel", description:"This is the general channel"})
-general_1 = Channel.create!({name:"Private", status_public: false, author_id: 1, topic:"This is the private channel", description:"This is the general channel" })
+general_1 = Channel.create!({name:"Private", status_public: false, author_id: 1, topic:"This is the private channel", description:"This is the private channel" })

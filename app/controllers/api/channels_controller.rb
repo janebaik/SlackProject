@@ -12,8 +12,6 @@ class Api::ChannelsController < ApplicationController
     end
 
     def index
-        # debugger
-        # give all channels for the current user
         @channels = Channel.all
         render :index
     end
@@ -25,25 +23,22 @@ class Api::ChannelsController < ApplicationController
     end
     
     def update
-        #update the channel
-        # members can add topic etc
         debugger
         @channel = Channel.find(params[:id])
         debugger
         # I added a "lock" that only author_id can update the
         # infor on channels (:name, :status_public, :author_id)
-        if @channel.author_id == current_user.id || current_user.username == "demo"
-            debugger
+        # if @channel.author_id == current_user.id || current_user.username == "demo"
             if @channel.update(channel_params)
                 render :show
             else
-                debugger
+                 
                 render json: ['Please make sure inputs are not left blank']
             end
-        else
-            debugger
-            render json: ['You are not the author of this channel']
-        end
+        # else
+ 
+        #     render json: ['You are not the author of this channel']
+        # end
     end
     
     def destroy

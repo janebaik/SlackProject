@@ -178,19 +178,19 @@
             text-decoration: underline;
             cursor: pointer;
         }
-        .submitButton{
-            padding-left: 20px;
-            padding-right: 20px;
-            color: rgb(77, 77, 77); 
-            border: none;
-            font-weight: 600;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-radius: 5px;
-            background: lightgray; 
-            pointer-events: none; // makes it not clickable
-        }
     }
+}
+.submitButton{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(77, 77, 77); 
+    border: none;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    background: lightgray; 
+    pointer-events: none; // makes it not clickable
 }
 
 .private-button{
@@ -212,7 +212,7 @@
 
 // user search form
 .user-search-form{
-    height: 290px;
+    height: 390px;
     // height: 370px;
     width: 550px;
     background-color: white;
@@ -242,9 +242,12 @@
     .label{
         padding-left: 10px;
     }
+    p{
+        padding-top: 10px;
+    }
 }
 .input-box{
-    margin-top: 20px;
+    margin-top: 15px;
     height: 41px;
     width: 100%;
     font-size: 19px;
@@ -263,8 +266,6 @@
     justify-content: flex-end;
 }
 .list-names{
-    // background-color: blue;
-    // color: white;
     position: absolute;
     top: 175px;
     border: 0.5px solid #838383;
@@ -299,7 +300,9 @@
     padding-bottom: 5px;
     padding-left: 20px;
 }
-
+.input-master{
+    display: flex;
+}
 .input-name{
     outline: none;
     border: none;
@@ -310,6 +313,8 @@
     margin-top: 5px;
     margin-right: 3px;
     border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .input-name:hover{
@@ -318,15 +323,13 @@
     box-shadow: 0px 0px 5px #9ad1ffa6;
 }
 .input-name-earse{
-    outline: none;
-    border: none;
     background-color: rgb(168, 203, 235);
     padding:2px;
     margin-left: 5px;
+    color: gray;
+    border-radius: 3px;
 }
 .input-name-earse:hover{
-    outline: none;
-    border: none;
     background-color: rgb(172, 181, 189);
     cursor: pointer;
 }
@@ -409,18 +412,22 @@
 }
 .channel-master-layout{
     display: flex;
+    width: 100%;
 }
 .channel-header{
     display: flex;
     height: 50px;
-    // background-color: red;
+    justify-content: space-between;
+    position: absolute;
+    width: 85%;
+    padding-left: 15px;
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
 
 .channel-item-header{
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    width: 1030px;
     margin-left: 5px;
     .topic{
         width: 200px;
@@ -449,6 +456,32 @@
 }
 
 
+.tooltiptext{
+    visibility: hidden;
+    // width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px 5px;
+    position: absolute;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 35%;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.icon-channel:hover .tooltiptext{
+    visibility: visible;
+}
+
+
 .tooltip .tooltiptext{
     visibility: hidden;
     width: 120px;
@@ -470,6 +503,31 @@
     border-color: transparent transparent black transparent;
 }
 .tooltip:hover .tooltiptext{
+    visibility: visible;
+}
+
+.tooltip-last .tooltiptext-last{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px 5px;
+    position: absolute;
+    right: 0px;
+}
+
+.tooltip-last .tooltiptext-last::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 13px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+.tooltip-last:hover .tooltiptext-last{
     visibility: visible;
 }
 

@@ -39,6 +39,7 @@ export const deleteChannel = (channelId) => {
 }
 
 export const updateChannel = (channel) =>{
+    debugger
     return(
         $.ajax({
             method:"PATCH",
@@ -48,18 +49,22 @@ export const updateChannel = (channel) =>{
     )
 }
 
-export const getMembersChannel = (channel) =>{
+export const getMembersChannel = (channelId) =>{
+     
     return(
         $.ajax({
             method: "GET",
-            url: `/api/channels/${channel.id}/users`
+            url: `api/channelmembers/${channelId}`
         })
     )
 }
 
+
+
+
 export const addUserChannel = (userChannel) => {
     // not sure if you are suppose to put userId here 
-    debugger
+     
     return (
         $.ajax({
             method: "POST",
