@@ -15,6 +15,15 @@ class Api::ChannelmembersController < ApplicationController
         render :index
     end
 
+    def destroy
+        if @channelmembers = ChannelMember.find(params[:id])
+            @channelmembers.destroy #gotta call destroy 
+            render :show
+        else
+            render json: ['You cannot remove this channel']
+        end
+    end
+
     def channel_members_params
         #not going to pass in author id
         params.require(:channel_members).permit(:user_id, :channel_id) 

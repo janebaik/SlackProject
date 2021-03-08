@@ -32,10 +32,10 @@ class SignUp extends React.Component {
     }
 
     handleSubmit(e) {
+         
         e.preventDefault()
         this.state
         this.props.action(this.state)
-
     }
 
     handleSignInDemo(e){

@@ -1,6 +1,6 @@
 // visually what it would look like
 // you just need to see what the action.channel is 
-
+import {REMOVE_CHANNEL_MEMBER} from "../actions/channel_action"
 import { RECEIVE_SINGLE_CHANNEL,
          RECEIVE_ALL_CHANNEL,
          REMOVE_CHANNEL } from '../actions/channel_action'

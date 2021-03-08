@@ -5,10 +5,11 @@
 #  id            :bigint           not null, primary key
 #  name          :string           not null
 #  status_public :boolean          not null
-#  topic         :string           not null
 #  author_id     :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  topic         :text
+#  description   :text
 #
 class Channel < ApplicationRecord
 

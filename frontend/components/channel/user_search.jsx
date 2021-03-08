@@ -10,7 +10,7 @@ class UserSearchForm extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
          
-        console.log(this.props.channelMembers)
+        // console.log(this.props.channelMembers)
     }
 
     componentDidMount(){
@@ -28,14 +28,14 @@ class UserSearchForm extends React.Component{
     }
 
     handleMatches(names, namesIds){
-        debugger
+         
         const matches = [];
         const previouslyAdded = [];
         if (this.state.inputVal.length === 0) {
             return matches;
         }
-        console.log(namesIds) //TODO You can use namesIds to compare the this.channelMembers get the name and compare it to the nameItems or matches which ever
-        debugger
+        // console.log(namesIds) //TODO You can use namesIds to compare the this.channelMembers get the name and compare it to the nameItems or matches which ever
+         
         namesIds.map((userArray) => {
             let id = userArray[1]
             let name = userArray[0]
@@ -47,28 +47,28 @@ class UserSearchForm extends React.Component{
         })
         let count = 0;
         const letter = this.state.inputVal;
-        debugger
+         
         while (previouslyAdded.length > count) {
             const letters = previouslyAdded[count].slice(0, this.state.inputVal.length);
             if (letters.toLowerCase() === letter.toLowerCase()) {
                 //todo: need to return a different message for users already added 
-                debugger
+                 
                 matches.push(<button className="selectedname">You already added this user!</button>);
 
             }
             count += 1;
         }
-        debugger
+         
         if (matches.length === 0){
             names.forEach((name) => {
                 const letters = name.slice(0, this.state.inputVal.length);
-                debugger
+                 
                 if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
-                    debugger
+                     
                     matches.push(<button className="selectedname" onClick={() => this.handleInput(name)}>{name}</button>);
                 }
             });
-            debugger
+             
             if (matches.length === 0) {
                 matches.push(<li className="list-none">No matches found - Try using their email instead</li>);
             }
@@ -88,31 +88,27 @@ class UserSearchForm extends React.Component{
 
     handleSubmit(boolean){
         if (boolean){
-            debugger
+             
             const userId = []
             this.props.channelMembers.map((user) => {
                 userId.push(user.user_id)
             })
-            console.log(userId)
+            // console.log(userId)
             this.props.users.map(name => {
-                debugger
                 if (!userId.includes(name.id) && this.props.currentUser !== name.id){
-                    debugger
                     this.props.addUserChannel({ user_id: name.id, channel_id: this.props.channelItem[0].id })
                 }
             })
-            debugger
+             
         } else {
-            debugger
+             
                 // this.props.addUserChannel({ user_id: this.props.currentUser, channel_id: this.props.channelItem[0].id })
             let count = 0;
             while (this.state.nameItems.length > count) {
                 let inputname = this.state.nameItems[count]
 
                 this.props.users.map((name) => {
-
                     if (name.username === inputname) {
-
                         this.props.addUserChannel({ user_id: name.id, channel_id: this.props.channelItem[0].id })
                     }
                 })
@@ -130,7 +126,7 @@ class UserSearchForm extends React.Component{
         const results = this.handleMatches(names, namesIds);
         let nameItems;
         if (this.state.nameItems.length > 0) {
-            nameItems = this.state.nameItems.map(name => {
+            nameItems = this.state.nameItems.map((name, i) => {
                 return <button className="input-name" type="button" >{name}<p className="input-name-earse" type="button" onClick={() => this.handleErase(name)}>X</p></button>
             })
         }
@@ -146,7 +142,7 @@ class UserSearchForm extends React.Component{
                         </div>
                         <button type="button" className="modal-button" onClick={() => this.props.closeModal()}>X</button>
                     </div>
-                    <button className="private-button" onClick={() => this.handleSubmit(true)}>Add all members of {this.props.channelItem[0].name}</button>
+                    <button className="add-all-button" onClick={() => this.handleSubmit(true)}>Add all members of {this.props.channelItem[0].name}</button>
 
                     {/* <div className="members">
                         <div>
