@@ -4,7 +4,9 @@ import {
     fetchChannel,
     updateChannel,
     removeChannelErrors,
-    deleteChannel
+    deleteChannel,
+    fetchChannelMembers,
+    addUserChannel
 } from '../../actions/channel_action'
 import Channel from './channel';
 
@@ -13,20 +15,19 @@ const msp = (state, ownProps) =>{
     return {
        channels: Object.values(state.entities.channels),
        channel: Object.values(state.channel),
+       channelMembers: state.channelMembers,
        currentUserId: state.session.id
     }
 }
 
-// fetchChannels()
-// fetchChannel(channelId)
-// createChannel(channel)
-// updateChannel(channel)
-// removeChannelErrors()  -> a channel actually doesnt get removed completely 
 const mdp = (dispatch) =>{
     return{
+        addUserChannel: (ids) => dispatch(addUserChannel(ids)),
         fetchChannels: () => dispatch(fetchChannels()),
         fetchChannel: (channelId) => dispatch(fetchChannel(channelId)),
-        updateChannel: (channel) => dispatch(updateChannel(channel))    }
+        fetchChannelMembers: (id) => dispatch(fetchChannelMembers(id))
+
+    }
 }
 
 export default connect(msp, mdp)(Channel)

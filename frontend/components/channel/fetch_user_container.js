@@ -6,7 +6,7 @@ import { addUserChannel, fetchChannelMembers } from "../../actions/channel_actio
 // actions
 
 const msp = (state, ownProps) => {
-     debugger
+      
     return {
         channel: Object.values(state.entities.channels),
         inputVal: "",

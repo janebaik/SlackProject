@@ -28,7 +28,7 @@ class FetchUser extends React.Component {
         };
     }
     handleInput(name, userId){
-        console.log(name)
+        // console.log(name)
         this.setState({ ["nameItems"]: <button type="button" className="nameItems" key={userId}>
             {/* TODO */}
                                             <img className="img-button-modal" src={window.MemberIcon} alt=""/>
@@ -42,16 +42,15 @@ class FetchUser extends React.Component {
         this.setState({ ["nameItems"]: "" })
     }
     handleMatches() {
-        debugger
         let names = [];
         const matches = [];
         const matched = [];
         this.props.channelMembers.map((user) => {
-            debugger
+             
             this.props.users.map((userName) => {
                 if (userName.id === user.user_id){
                     names.push(userName.username);
-                    matches.push(<p onClick={() => this.handleInput(userName.username, user.id)} className="item-name">{userName.username}</p>)
+                    matches.push(<p key={userName.id} onClick={() => this.handleInput(userName.username, user.id)} className="item-name">{userName.username}</p>)
                 }
             })
         })
@@ -59,17 +58,17 @@ class FetchUser extends React.Component {
         if (this.state.inputVal.length === 0) {
             return matches;
         }
-        console.log(matched)
-        debugger
-        names.map((name) => {
+        // console.log(matched)
+         
+        names.map((name, i) => {
             const letters = name.slice(0, this.state.inputVal.length);
             if (letters.toLowerCase() === this.state.inputVal.toLowerCase()) {
-                matched.push(<p onClick={() => this.handleInput(name)} className="item-name">{name}</p>);
+                matched.push(<p key={i} onClick={() => this.handleInput(name)} className="item-name">{name}</p>);
             }
         });
         if (matched.length === 0) {
-            matched.push(<p className="error-search">No matches found</p>);
-            matched.push(<div className="center-clearout"><button className="clearout" type="button" onClick={() => this.handleClearSearch()}>Clear Search</button></div>)
+            matched.push(<p key={1} className="error-search">No matches found</p>);
+            matched.push(<div key={2} className="center-clearout"><button className="clearout" type="button" onClick={() => this.handleClearSearch()}>Clear Search</button></div>)
         }
         return matched
     }

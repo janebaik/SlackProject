@@ -5,7 +5,7 @@ import ChannelForm from '../channel/channel_form_container';
 import UserSearchForm from "../channel/user_search_container";
 import FetchUser from "../channel/fetch_user_container";
 import ChannelUpdateForm from "../channel/channel_update_container";
-
+// import ChannelOptionForm from "../channel/channel_option_form_container"
 function Modal({modal, closeModal}) {
     //  
     if (!modal){
@@ -16,11 +16,9 @@ function Modal({modal, closeModal}) {
      
     switch (modal) {
         case "Create a Channel":
-            //  
             component = <ChannelForm/>;
             break
         case "Add users":
-             
             component = <UserSearchForm/>
             break
         case "Fetch users":
@@ -29,11 +27,13 @@ function Modal({modal, closeModal}) {
         case "Change topic":
             component = <ChannelUpdateForm/>
             break
+        // case "More options":
+        //     component = <ChannelOptionForm />
+        //     break
         default:
             return null;
     }
     return (
-        // our hidden component! Channels (ask megan about stopPropagation understand it a little bit but not to the full content )
         <div className='channel-form-head' onClick={closeModal}>
             <div className='channel-form' onClick={e => e.stopPropagation()}>
                 {component} 

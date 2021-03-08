@@ -6,6 +6,7 @@ export const REMOVE_CHANNEL = 'REMOVE_CHANNEL';
 export const RECEIVE_CHANNEL_ERRORS = 'RECEIVE_CHANNEL_ERRORS';
 export const CLEAR_CHANNEL_ERROR = 'CLEAR_CHANNEL_ERROR';
 export const FETCH_MEMBERS = 'FETCH_MEMBERS';
+export const REMOVE_CHANNEL_MEMBER = 'REMOVE_CHANNEL_MEMBER';
 
 // just a note idk
 // edit action is responsible for rendering the view
@@ -17,7 +18,6 @@ const receiveAllChannels = (channels) =>{
     }
 }
 const receiveSingleChannel = (channel) => {
-    //  
     return{
         type: 'RECEIVE_SINGLE_CHANNEL',
         channel: channel
@@ -50,6 +50,14 @@ const fetchMembers = (channelItem) => {
         channelItem: channelItem
     }
 }
+
+const removeChannelMember = (channelMemberId) => {
+     
+    return {
+        type: 'REMOVE_CHANNEL_MEMBER',
+        channelMemberId: channelMemberId
+    }
+}
 // creating channel
 
 export const fetchChannels = () => (dispatch) => {
@@ -72,7 +80,7 @@ export const createChannel = (channel) => (dispatch) =>{
 }
 
 export const updateChannel = (channel) => (dispatch) => {
-     debugger
+       
     return ChannelApiUtil.updateChannel(channel)
         .then((channel) => dispatch(receiveSingleChannel(channel)),
         (errors) => dispatch(receiveChannelErrors(errors.responseJSON)))
@@ -91,7 +99,6 @@ export const deleteChannel = (channelId) => (dispatch) => {
 }
 
 export const addUserChannel = (userChannel) => (dispatch) => {
-     debugger
     return ChannelApiUtil.addUserChannel(userChannel)
         // .then(() => {
         //     //didnt write reducer for this.
@@ -106,3 +113,11 @@ export const fetchChannelMembers = (channelId) => (dispatch) => {
             return dispatch(fetchMembers(channelItem))
         })
 }
+
+export const deleteChannelMembers = (channelMemberId) => (dispatch) => {
+     
+    return ChannelApiUtil.removeUserChannel(channelMemberId)
+        .then(() => dispatch(removeChannelMember(channelMemberId)))
+}
+
+

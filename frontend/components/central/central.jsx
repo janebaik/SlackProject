@@ -11,16 +11,7 @@ class Central extends React.Component{
 
     logoutUser(){
         this.props.logout();
-         //if you want to earse all demo users  
-        //  BONUS TODO: you can earse all the demo users after a certain amount of time
-        // if (this.props.user.username.includes("demo")) {
-        //     //  
-        //     this.props.deleteUser(this.props.user.id)
-        //     //  
-        // }
     }
-
-    
 
     openModal(modal){
         this.props.openModal(modal)
@@ -29,6 +20,7 @@ class Central extends React.Component{
     render(){
         return(
             <div>
+                <p>Search bar</p>
                 <div className="channel-nav-master">
                     <nav className='channel-list-dropdown'>
                         <p className="channel-nav-header">Channels</p>

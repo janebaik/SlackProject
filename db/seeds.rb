@@ -9,11 +9,11 @@
 
 User.destroy_all
 Channel.destroy_all
-demoUser = User.create!({username: 'demo_user', email: 'demo_user@gmail.com', password: 'ilovestars123'})
-user_1 = User.create!({username: 'Jane', email: 'jane@gmail.com', password: 'ilovestars123'})
-user_2 = User.create!({username: 'Mona', email: 'mona@gmail.com', password: 'ilovestars123'})
+demoUser = User.create!({id: 2, username: 'demo_user', email: 'demo_user@gmail.com', password: 'ilovestars123'})
+user_1 = User.create!({id: 3, username: 'Jane', email: 'jane@gmail.com', password: 'ilovestars123'})
+user_2 = User.create!({id: 4, username: 'Mona', email: 'mona@gmail.com', password: 'ilovestars123'})
 author_1 = User.create!({id: 1, username:"wassap", email:"janefneiaiwefn", password:"afiwjfoiqjfoiejfwe"})
 
 
-general_1 = Channel.create!({name:"General", status_public: true, author_id: 1, topic:"This is the general channel", description:"This is the general channel"})
-general_1 = Channel.create!({name:"Private", status_public: false, author_id: 1, topic:"This is the private channel", description:"This is the private channel" })
+general_1 = Channel.create!({id: 1,name:"General", status_public: true, author_id: 1, topic:"This is the general channel", description:"This is the general channel"})
+# general_1 = Channel.create!({id: 2,name:"Private", status_public: false, author_id: 1, topic:"This is the private channel", description:"This is the private channel" })

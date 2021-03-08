@@ -23,22 +23,13 @@ class Api::ChannelsController < ApplicationController
     end
     
     def update
-        debugger
         @channel = Channel.find(params[:id])
-        debugger
-        # I added a "lock" that only author_id can update the
-        # infor on channels (:name, :status_public, :author_id)
-        # if @channel.author_id == current_user.id || current_user.username == "demo"
-            if @channel.update(channel_params)
-                render :show
-            else
-                 
-                render json: ['Please make sure inputs are not left blank']
-            end
-        # else
- 
-        #     render json: ['You are not the author of this channel']
-        # end
+        if @channel.update(channel_params)
+            render :show
+        else
+                
+            render json: ['Please make sure inputs are not left blank']
+        end
     end
     
     def destroy

@@ -4,7 +4,7 @@ import { closeModal, openModal } from '../../actions/modal_actions';
 import ChannelForm from './channel_form';
 
 const msp = (state, ownProps) =>{
-    debugger
+     
     return {
         currentUser: state.session.id,
         currentChannel: Object.values(state.channel),
