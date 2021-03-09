@@ -64,7 +64,7 @@ class ChannelForm extends React.Component{
                         <div className="channel-name-label">
                             <div className="channel-name-input">
                                 <label htmlFor="Name" >Name</label>
-                                {this.handleErrors() ? "" : <p className="channel-name-error">That name is already taken by a channel, username, or user group.</p>}
+                                {this.handleErrors() ? "" : <p className="channel-name-error">That name is already taken by a channel.</p>}
                                 {this.state.name !== "" ? "" : <p className="channel-name-error">Don't forget to fill to name your channel!</p>}
                             </div>
                             <div className="channel-name-symbol">

@@ -27,14 +27,24 @@ class Channel extends React.Component{
             if (prevProps.channel[0].topic !== this.props.channel[0].topic) {
                 this.handleChannel(this.props.channel[0].id, this.props.channel[0].name, this.props.channel[0].topic)
             }
-            if ((prevProps.channelMembers !== this.props.channel[0].channelMembers) && (prevProps.channel === this.props.channel)){
+            if (prevProps.channelMembers !== this.props.channelMembers){
+                let init = false;
+                Object.values(this.props.channelMembers).map((objectData) => {
+                    if (objectData.user_id === this.props.currentUserId) {
+                        debugger
+                        init = true
+                        console.log("UERUEUREURUE more")
+                    }
+                })
                 debugger
-                console.log(prevProps.channelMembers)
-                console.log(prevProps.channel)
-                console.log(this.props.channel)
-                // console.log(this.props.channels[0].channelMembers) // undefined
-                // todo
-                // this.handleChannel(this.props.channels[-1].id, this.props.channels[-1].name, this.props.channels[-1].topic)
+                if (!init) {
+                    debugger
+                    // this.handleChannel(this.props.channels[0].id, this.props.channels[0].name, this.props.channels[0].topic)     
+                    debugger
+                    document.getElementById(`${prevProps.channel[0].id}`).remove();
+                }
+                debugger
+
             }
         }
     }
@@ -42,16 +52,26 @@ class Channel extends React.Component{
     handleChannel(id, name, topic){
         this.props.fetchChannel(id);
         const channelMembers = this.props.fetchChannelMembers(id);
-
-        this.props.channels.map((channel, i) => {
-            Object.values(channel.channel_member).map((user) => {
-                if (this.props.currentUserId === user.user_id) {
-                    document.getElementById(channel.id).style.backgroundColor = "rgb(84, 19, 85)"
-                }
-            })
-        })
+        debugger
+        // option 1
+        // const arrayMember = Object.values(this.props.channelMembers)
+        // debugger
+        // arrayMember.map((channel, i) => {
+        //     debugger
+        //     if (this.props.currentUserId === channel.user_id) {
+        //         document.getElementById(channel.id).style.backgroundColor = "rgb(84, 19, 85)"
+        //     }
+        // })
+        // option 2
+        // this.props.channels.map((channel, i) => {
+        //     Object.values(channel.channel_member).map((user) => {
+        //         if (this.props.currentUserId === user.user_id) {
+        //             document.getElementById(channel.id).style.backgroundColor = "rgb(84, 19, 85)"
+        //         }
+        //     })
+        // })
         this.setState({ ["component"]: <ChannelItem channelId={id} name={name} topic={topic} channelMembers={channelMembers}/>})
-        document.getElementById(id).style.backgroundColor = "rgb(61, 132, 226)"
+        // document.getElementById(id).style.backgroundColor = "rgb(61, 132, 226)"
     }
     render(){
          
