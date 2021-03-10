@@ -154,7 +154,7 @@ class ChannelItem extends React.Component {
                                     }
 
                                     <div onClick={() => this.handleClickMembers()} className="about-members">
-                                        <p> Members </p>
+                                        <p>Members</p>
                                         {this.state.members ? <p>▲</p> : <p>▼</p>}
                                     </div>
                                     {this.state.members ?
