@@ -5,7 +5,7 @@ import ChannelForm from '../channel/channel_form_container';
 import UserSearchForm from "../channel/user_search_container";
 import FetchUser from "../channel/fetch_user_container";
 import ChannelUpdateForm from "../channel/channel_update_container";
-// import ChannelOptionForm from "../channel/channel_option_form_container"
+import ChannelDescriptionUpdate from "../channel/channel_description_update_container"
 function Modal({modal, closeModal}) {
     //  
     if (!modal){
@@ -27,9 +27,9 @@ function Modal({modal, closeModal}) {
         case "Change topic":
             component = <ChannelUpdateForm/>
             break
-        // case "More options":
-        //     component = <ChannelOptionForm />
-        //     break
+        case "Change description":
+            component = <ChannelDescriptionUpdate />
+            break
         default:
             return null;
     }

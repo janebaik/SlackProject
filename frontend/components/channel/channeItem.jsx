@@ -5,25 +5,13 @@ class ChannelItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            infoclicked : false //TODO
+            infoclicked : true,
+            aboutclicked: false,
+            members: false
         }
-         
     }
-
-    componentDidUpdate(prevProps, prevState) {
-        debugger
-        // if (prevProps.channel.length !== 0) {
-        //     // <ChannelItem channelId={id} name={name} topic={topic} />
-        //     if ((prevProps.channelMembers !== this.props.channel[0].channelMembers) && (prevProps.channel === this.props.channel)) {
-        //         debugger
-        //         console.log(prevProps.channelMembers)
-        //         console.log(prevProps.channel)
-        //         console.log(this.props.channel)
-        //         // console.log(this.props.channels[0].channelMembers) // undefined
-        //         // todo
-        //         // this.handleChannel(this.props.channels[-1].id, this.props.channels[-1].name, this.props.channels[-1].topic)
-        //     }
-        // }
+    componentDidMount(){
+        this.props.fetchUsers()
     }
 
     handleAddUser() {
@@ -52,18 +40,29 @@ class ChannelItem extends React.Component {
             })
         })
     }
-    
-    // moreOptions(){
-    //     this.props.fetchChannel(this.props.channelId);
-    //     this.props.openModal('More options');
-    // }
+
+    handleClickMembers(){
+        this.setState({ ['members']: !this.state.members })
+
+    }
+    handleClickAbout(){
+        this.setState({ ['aboutclicked']: !this.state.aboutclicked })
+    }
 
     handleInfo(){
         this.setState({['infoclicked']: !this.state.infoclicked})
     }
     
     render() {
-         
+        const members = this.props.channelMembers.map((user, i) => {
+            const finalarray = []
+            this.props.users.map((currentUser) => {
+                if (currentUser.id === user.user_id){
+                    return finalarray.push(<div className="username" key={user.id}>{currentUser.username}</div>)
+                }
+            })
+            return <div key={i}>{finalarray}</div>
+        })
         return (
             <div>
                 <div className="channel-header">
@@ -126,13 +125,51 @@ class ChannelItem extends React.Component {
                                             <p className="signingout">Leave</p>
                                             </div>
                                         }
+                                        
                                     </div>
+                                    
+                                    <div onClick={() => this.handleClickAbout()}className="about-channels">
+                                        <p> About </p>
+                                        {this.state.aboutclicked ? <p>▲</p> : <p>▼</p>}
+                                    </div>
+                                    {this.state.aboutclicked ?
+                                    <div className="topic-about-border">
+                                        <div className="topic-about">
+                                           <div className="topic-options">
+                                            <p>Topic</p>
+                                            <p className="topic">{this.props.topic}</p>
+                                            <p className="edit" onClick={() => this.props.openModal("Change topic")}>Edit</p>
+                                            </div>
+                                            <div className="topic-option">
+                                                {/* TODO: need to update the descriptions for the channels (you can either use the channel update form or create a new one*/}
+                                                <p>Description</p>
+                                                <p className="topic">{Object.values(this.props.channel)[0].description.length === 0  ? "No description for this channel. Add a description!" :Object.values(this.props.channel)[0].description}</p>
+                                                <p className="edit" onClick={() => this.props.openModal("Change description")}>Edit</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                        
+                                        :
+                                        ""
+                                    }
+
+                                    <div onClick={() => this.handleClickMembers()} className="about-members">
+                                        <p>Members</p>
+                                        {this.state.members ? <p>▲</p> : <p>▼</p>}
+                                    </div>
+                                    {this.state.members ?
+                                        <div className="members-options">
+                                            {members}
+                                        </div>
+                                        :
+                                        ""
+                                    }
+
+
                                 </div>
                                 :
                                 ""}
                     </div>
-
-                    
                 </div>
             </div>
         )

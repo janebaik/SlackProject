@@ -7,7 +7,7 @@ export const RECEIVE_CHANNEL_ERRORS = 'RECEIVE_CHANNEL_ERRORS';
 export const CLEAR_CHANNEL_ERROR = 'CLEAR_CHANNEL_ERROR';
 export const FETCH_MEMBERS = 'FETCH_MEMBERS';
 export const REMOVE_CHANNEL_MEMBER = 'REMOVE_CHANNEL_MEMBER';
-
+export const ADD_CHANNEL_USER = 'ADD_CHANNEL_USER';
 // just a note idk
 // edit action is responsible for rendering the view
 // update action is responsible for interacting with the model(db updates etc)
@@ -48,6 +48,12 @@ const fetchMembers = (channelItem) => {
     return {
         type: 'FETCH_MEMBERS',
         channelItem: channelItem
+    }
+}
+const AddChannelMember = (user) => {
+    return {
+        type: 'ADD_CHANNEL_USER',
+        user: user
     }
 }
 
@@ -99,12 +105,9 @@ export const deleteChannel = (channelId) => (dispatch) => {
 }
 
 export const addUserChannel = (userChannel) => (dispatch) => {
+     
     return ChannelApiUtil.addUserChannel(userChannel)
-        // .then(() => {
-        //     //didnt write reducer for this.
-        //     // will probably need to write reducers for it maybe?
-        //     return 
-        // })
+        .then((user) => dispatch(AddChannelMember(user)))
 }
 
 export const fetchChannelMembers = (channelId) => (dispatch) => {
