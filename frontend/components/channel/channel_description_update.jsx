@@ -1,5 +1,5 @@
 import React from 'react';
-class ChannelUpdate extends React.Component {
+class ChannelDescriptionUpdate extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,7 +23,7 @@ class ChannelUpdate extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.updateChannel(this.state).then(() => this.props.closeModal())
-        
+
     }
 
     handleClose() {
@@ -34,14 +34,14 @@ class ChannelUpdate extends React.Component {
         // cannot change it back to true because line 57 never gets updated
         return (
             <div className='channel-form-topic'>
-                <form  onSubmit={this.handleSubmit}>
-                    <label className="edit-topic-header" htmlFor="Description">Edit channel Topic</label>
+                <form onSubmit={this.handleSubmit}>
+                    <label className="edit-topic-header" htmlFor="Description">Edit channel Description</label>
                     <div>
-                        <textarea className="text-topic" type="text" onChange={this.handleChange("topic")} defaultValue={this.props.currentChannel[0].topic}/>
+                        <textarea className="text-topic" type="text" onChange={this.handleChange("description")} defaultValue={this.props.currentChannel[0].description} />
                     </div>
                     <div className="buttons-edit-topic">
                         <button onClick={() => this.handleClose()} className="button" button="button">Cancel</button>
-                        <button button="submit" className="private-button">Set Topic</button>
+                        <button button="submit" className="private-button">Set Description</button>
                     </div>
                 </form>
 
@@ -50,4 +50,4 @@ class ChannelUpdate extends React.Component {
 
     }
 }
-export default ChannelUpdate;
+export default ChannelDescriptionUpdate;

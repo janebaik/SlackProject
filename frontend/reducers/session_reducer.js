@@ -14,7 +14,6 @@ const sessionReducer = (oldState={id:null}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             //  
-            // TODO: probably want to add  s here just in case (maybe look at what state consist of)
             nextState.id = action.user.id//got from line 10
             return nextState
         case REMOVE_USER:

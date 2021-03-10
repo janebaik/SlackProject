@@ -439,12 +439,12 @@
     flex-direction: column;
     font-weight: bold;
     margin-left: 5px;
-    .topic{
-        font-weight: normal;
-        font-size: 13px;
-        color: rgb(78, 78, 78);
-        padding-top: 10px;
-    }
+    // .topic{
+    //     font-weight: normal;
+    //     font-size: 13px;
+    //     color: rgb(78, 78, 78);
+    //     padding-top: 10px;
+    // }
     .topic:hover{
         cursor: pointer;
         color: $blue-text-highlight;
@@ -453,6 +453,13 @@
         outline: none;
     }
 }
+.topic{
+        font-weight: normal;
+        font-size: 13px;
+        color: rgb(78, 78, 78);
+        padding-top: 10px;
+    }
+    
 .channel-icon-header{
     display: flex;
 }
@@ -549,6 +556,8 @@
     display: flex;
     padding-bottom: 10px;
     justify-content: space-between;
+    border-left: 1px solid #aeabab9e;
+    padding-left: 10px;
 
     .detail-header-first{
         p{
@@ -739,7 +748,7 @@
 .icons{
     display: flex;
     justify-content: space-around;
-
+    border-left: 1px solid #aeabab9e;
     .icon-info{
         p{
             padding-left: 30px;
@@ -795,4 +804,61 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 13px #4b4b4ba6;
+}
+
+.about-channels{
+    border-top: 1px solid #aeabab9e;
+    border-left: 1px solid #aeabab9e;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    p{
+        font-weight: bolder;
+    }
+}
+
+.about-members{
+    border-top: 1px solid #aeabab9e;
+    border-left: 1px solid #aeabab9e;
+    border-bottom: 1px solid #aeabab9e;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    p{
+        font-weight: bolder;
+    }
+}
+.topic-about-border{
+    border-left: 1px solid #aeabab9e;
+}
+.topic-options{
+    background-color: #bdb4b43b;
+    margin-bottom: 5px;
+    p{
+        padding: 5px;
+    }
+    
+}
+.topic-option{
+    background-color: #bdb4b43b;
+    p{
+        padding: 5px;
+    }
+}
+.edit{
+    color: $blue-text-highlight;
+}
+.members-options{
+    border-left: 1px solid #aeabab9e;
+    border-bottom: 1px solid #aeabab9e;
+}
+.username{
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 5px;
+}
+.username:hover{
+    background-color: $blue-splash;
 }

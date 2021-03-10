@@ -75,11 +75,11 @@ class ChannelForm extends React.Component{
                     </div>
                     <div className="channel-name-label">
                         <div className="channel-name-input2">
-                            <label htmlFor="Description">Description</label>
+                            <label htmlFor="Description">Topic</label>
                             <p>(optional)</p>
                         </div>
                         <div className="channel-name-input2-5">
-                            <input id="Description" type="text" value={this.state.description} onChange={this.handleChange("description")} />
+                            <input id="Description" type="text" value={this.state.topic} onChange={this.handleChange("topic")} />
                             <p>What's this channel about?</p>
                         </div>
                     </div>
