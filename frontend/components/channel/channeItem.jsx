@@ -12,12 +12,12 @@ class ChannelItem extends React.Component {
     }
     componentDidMount(){
         this.props.fetchUsers()
-        
     }
 
     handleAddUser() {
         this.props.fetchChannel(this.props.channelId)
         this.props.openModal('Add users')
+        
     }
     viewMembers() {
         this.props.fetchChannel(this.props.channelId)
@@ -35,8 +35,6 @@ class ChannelItem extends React.Component {
             Object.values(objectChannel.channel_member).map((item) => {
                 if (item.user_id === this.props.currentUser){
                     this.props.deleteChannelMembers(item.id)
-                    ///TODO
-                    // might have to somehow make the channel disappear here and then re-render anythor channel 
                 }
             })
         })
@@ -64,6 +62,7 @@ class ChannelItem extends React.Component {
             })
             return <div key={i}>{finalarray}</div>
         })
+
         return (
             <div>
                 <div className="channel-header">
@@ -76,10 +75,12 @@ class ChannelItem extends React.Component {
                             <img onClick={() => this.viewMembers()} className="icon-channel" src={window.MemberIcon} alt="member-icon" />
                             <div className="tooltiptext">View Members</div>
                         </div>
+                        
                         <div className="tooltip">
                             <img onClick={() => this.handleAddUser()} className="icon-channel" src={window.addMemberIcon} alt="member-add-icon" />
                             <div className="tooltiptext">Add Members</div>
                         </div>
+                        
                         <div className={this.state.infoclicked ? "tooltip" : "tooltip-last"}>
                             <img onClick={() => this.handleInfo()} className="icon-channel" src={window.infoicon} alt="info-icon" />
                             {this.state.infoclicked ? <div className="tooltiptext">Close Channel Info</div> : <div className="tooltiptext-last">Channel Info</div>}

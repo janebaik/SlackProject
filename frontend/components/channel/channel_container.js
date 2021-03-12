@@ -8,7 +8,7 @@ import {
 import Channel from './channel';
 
 const msp = (state, ownProps) =>{
-     debugger
+      
     return {
        channels: Object.values(state.entities.channels),
        channel: Object.values(state.channel),

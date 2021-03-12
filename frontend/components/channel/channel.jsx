@@ -26,7 +26,7 @@ class Channel extends React.Component{
          
         if (prevProps.channel.length !== 0){
             if (prevProps.channel[0].topic !== this.props.channel[0].topic) {
-                this.handleChannel(this.props.channel[0].id, this.props.channel[0].name, this.props.channel[0].topic)
+                this.handleChannel(this.props.channel[0].id, this.props.channel[0].name, this.props.channel[0].topic, this.props.channel[0].status_public)
             }
             if (prevProps.channelMembers !== this.props.channelMembers){
                 let init = false;
@@ -47,7 +47,7 @@ class Channel extends React.Component{
         }
     }
     
-    handleChannel(id, name, topic, description){
+    handleChannel(id, name, topic, description, status_public){
         this.props.fetchChannel(id);
         const channelMembers = this.props.fetchChannelMembers(id);
         // option 1
@@ -67,7 +67,7 @@ class Channel extends React.Component{
         //         }
         //     })
         // })
-        this.setState({ ["component"]: <ChannelItem channelId={id} name={name} topic={topic} description={description} channelMembers={channelMembers}/>})
+        this.setState({ ["component"]: <ChannelItem channelId={id} name={name} topic={topic} description={description} channelMembers={channelMembers} statusPublic={status_public}/>})
         // document.getElementById(id).style.backgroundColor = "rgb(61, 132, 226)"
     }
     render(){
@@ -78,14 +78,12 @@ class Channel extends React.Component{
             Object.values(channel.channel_member).map((user) => {
                 if (this.props.currentUserId === user.user_id) {
                     // const channelid = channel.id.toString();
-                    arraychannel.push(<span id={channel.id} key={channel.id} className="channel-items" onClick={() => this.handleChannel(channel.id, channel.name, channel.topic, channel.description)}>{channel.status_public ? "#" : <li className="fa">&#xf023;</li>}<li className="hashtag" ></li>{channel.name}</span>)
+                    arraychannel.push(<span id={channel.id} key={channel.id} className="channel-items" onClick={() => this.handleChannel(channel.id, channel.name, channel.topic, channel.description, channel.status_public)}>{channel.status_public ? "#" : <li className="fa">&#xf023;</li>}<li className="hashtag" ></li>{channel.name}</span>)
                 }
             })
             let inGeneral = true;
             this.props.channels.map(channel => {
-                console.log(channel)
                 if (channel.name === "General"){
-                    console.log(channel.channel_member)
                     if (channel.channel_member.includes(this.props.currentUserId)){
                         inGeneral = false
                     }

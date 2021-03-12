@@ -8,7 +8,7 @@ import { addUserChannel, fetchChannel } from '../../actions/channel_action'
 
 // when a user is signed in 
 const msp = (state, ownProps) =>{
-    debugger
+     
     return {
         user: state.entities.users[state.session.id],
         channelMembers: Object.values(state.channel),
