@@ -17,6 +17,7 @@ class Channel extends React.Component{
     componentDidMount(){
         this.props.fetchChannels();
     }
+
     addUsers(){
         this.props.addUserChannel({ user_id: this.props.currentUserId, channel_id: 1 })
     }
@@ -72,7 +73,6 @@ class Channel extends React.Component{
     render(){
          
         const channels = this.props.channels.map((channel, i) => {
-            let checkedGeneral = true;
             // return <span id={channel.id} key={channel.id} className="channel-items" onClick={() => this.handleChannel(channel.id, channel.name, channel.topic)}>{channel.status_public ? "#" : <li className="fa">&#xf023;</li>}<li className="hashtag" ></li>{channel.name}</span>
             const arraychannel = []
             Object.values(channel.channel_member).map((user) => {
@@ -81,22 +81,35 @@ class Channel extends React.Component{
                     arraychannel.push(<span id={channel.id} key={channel.id} className="channel-items" onClick={() => this.handleChannel(channel.id, channel.name, channel.topic, channel.description)}>{channel.status_public ? "#" : <li className="fa">&#xf023;</li>}<li className="hashtag" ></li>{channel.name}</span>)
                 }
             })
-            if (checkedGeneral){
-                if (channel.name === "General") {
-                    let insideGeneral = false;
-                    channel.channel_member.map((channelObject) => {
-                        if (channelObject.user_id === this.props.currentUserId){
-                            insideGeneral = true;
-                        }
-                    })
-                    if (!insideGeneral && channel.name === "General"){
-                        this.props.addUserChannel({ user_id: this.props.currentUserId, channel_id: 1 }).then(() =>this.props.fetchChannels())
-                        insideGeneral = true;
-                        // this.props.fetchChannel(1);
+            let inGeneral = true;
+            this.props.channels.map(channel => {
+                console.log(channel)
+                if (channel.name === "General"){
+                    console.log(channel.channel_member)
+                    if (channel.channel_member.includes(this.props.currentUserId)){
+                        inGeneral = false
                     }
                 }
-                checkedGeneral = false
+            })
+            if (inGeneral){
+                // this.props.addUserChannel({ user_id: this.props.currentUserId, channel_id: 1 }).then(() => this.props.fetchChannels())
             }
+            // if (checkedGeneral){
+                
+            //     if (channel.name === "General") {
+            //         let insideGeneral = false;
+            //         channel.channel_member.map((channelObject) => {
+            //             if (channelObject.user_id === this.props.currentUserId){
+            //                 insideGeneral = true;
+            //             }
+            //         })
+            //         if (!insideGeneral && channel.name === "General"){
+            //             this.props.addUserChannel({ user_id: this.props.currentUserId, channel_id: 1 }).then(() =>this.props.fetchChannels())
+            //             insideGeneral = true;
+            //             // this.props.fetchChannel(1);
+            //         }
+            //     }
+            // }
             
             return arraychannel
         })

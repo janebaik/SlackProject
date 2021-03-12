@@ -12,6 +12,7 @@ class ChannelItem extends React.Component {
     }
     componentDidMount(){
         this.props.fetchUsers()
+        
     }
 
     handleAddUser() {
@@ -137,11 +138,10 @@ class ChannelItem extends React.Component {
                                         <div className="topic-about">
                                            <div className="topic-options">
                                             <p>Topic</p>
-                                            <p className="topic">{this.props.topic}</p>
+                                                <p className="topic">{this.props.topic.length === 0 ? "No topic for this channel. Add a topic!" : this.props.topic}</p>
                                             <p className="edit" onClick={() => this.props.openModal("Change topic")}>Edit</p>
                                             </div>
                                             <div className="topic-option">
-                                                {/* TODO: need to update the descriptions for the channels (you can either use the channel update form or create a new one*/}
                                                 <p>Description</p>
                                                 <p className="topic">{Object.values(this.props.channel)[0].description.length === 0  ? "No description for this channel. Add a description!" :Object.values(this.props.channel)[0].description}</p>
                                                 <p className="edit" onClick={() => this.props.openModal("Change description")}>Edit</p>

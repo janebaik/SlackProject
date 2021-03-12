@@ -9,6 +9,7 @@ class Central extends React.Component{
         super(props)
     }
 
+    
     logoutUser(){
         this.props.logout();
     }
