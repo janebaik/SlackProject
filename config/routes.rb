@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
   
-  resources :message, only: [:index, :create, :show, :destroy] do
+  resources :directmessages, only: [:index, :create, :show, :destroy] do
     resources :users, only: [:index]
   end
   resources :directmessagemembers, only:[:create, :show, :destroy]

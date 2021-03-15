@@ -18,7 +18,9 @@ author_1 = User.create!({id: 1, username:"wassap", email:"janefneiaiwefn", passw
 
 general_1 = Channel.create!({id: 1,name:"General", status_public: true, author_id: 1, topic:"This is the general channel", description:"This is the general channel"})
 # general_1 = Channel.create!({id: 2,name:"Private", status_public: false, author_id: 1, topic:"This is the private channel", description:"This is the private channel" })
-ChannelMember.create({id:1, channel_id: 1, user_id:2})
-ChannelMember.create({id:2, channel_id: 1, user_id:3})
-ChannelMember.create({id:3, channel_id: 1, user_id:4})
-ChannelMember.create({id:4, channel_id: 1, user_id:1})
+ChannelMember.create!({id:1, channel_id: 1, user_id:2})
+ChannelMember.create!({id:2, channel_id: 1, user_id:3})
+ChannelMember.create!({id:3, channel_id: 1, user_id:4})
+ChannelMember.create!({id:4, channel_id: 1, user_id:1})
+
+

@@ -8,4 +8,7 @@
 #
 class DirectMessage < ApplicationRecord
 
+    has_many :direct_message_members, dependent: :destroy
+    has_many :user,   #endoiunt
+    through: :channel_member
 end
